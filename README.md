@@ -1,6 +1,6 @@
 # EvoProjects
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+Чистый проект для курса по Angular. Сгенерирован [Angular CLI](https://github.com/angular/angular-cli) v. 16.2.14.
 
 ## Development server
 
