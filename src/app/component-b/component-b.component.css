@@ -1,0 +1,12 @@
+.btns {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+button {
+  padding: 0;
+  margin: 3px;
+  width: 16px;
+  height: 16px;
+}
