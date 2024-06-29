@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./component-b.component.css']
 })
 export class ComponentBComponent {
-    counter = 0;
+    counter: number = 0;
 
   changeCount(type: boolean) {
     type ? this.counter++ : this.counter--;
