@@ -1,0 +1,12 @@
+ul {
+  display: block;
+}
+li {
+  display: list-item;
+  list-style-type: none;
+  margin: 5px;
+}
+li:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
