@@ -1,0 +1,9 @@
+a {
+  display: inline-block;
+  margin: 3px;
+  padding: 5px;
+  background-color: #4b4b4b;
+  border: black dashed thin;
+  color: white !important;
+  text-decoration: none;
+}

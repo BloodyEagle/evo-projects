@@ -1,0 +1,5 @@
+<h5>{{ item.name }}</h5>
+<p>SKU: {{ item.id }}</p>
+<a routerLink="details">Detail</a>
+<a routerLink="list" [queryParams]="{ list: 1, enabled: true }">List</a>
+<router-outlet></router-outlet>

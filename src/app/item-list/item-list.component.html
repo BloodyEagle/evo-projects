@@ -1,0 +1,4 @@
+<div class="item-list" *ngFor=" let item of items">
+  <a routerLink="{{ item.id }}">{{ item.name }}</a>
+</div>
+<router-outlet></router-outlet>
