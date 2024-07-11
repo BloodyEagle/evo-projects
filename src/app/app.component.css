@@ -4,6 +4,7 @@ ul {
 li {
   display: list-item;
   list-style-type: none;
+  padding: 5px;
   margin: 5px;
 }
 li:hover {
