@@ -4,7 +4,7 @@
     [id]="cat.name"
     *ngFor="let cat of array_cats; index as index"
     [ngStyle]="switch_string == cat.name ? {'color': 'red'}:{'color' : 'blue'}">
-    {{ index + 1 }}. {{ cat.name }}. Birthday - {{ cat.birthday | date: "dd.MM.YYYY" }}
+    {{ index + 1 }}. {{ cat.name }}. Birthday - {{ cat.birthday | date: "dd/MM/YYYY" }}
     <span *ngIf="cat.name == 'Jerry'">I'm not cat! I need {{ 3 | plus5 }} slices of cheese.!</span>
   </li>
 </ul>
