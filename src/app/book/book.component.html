@@ -1,0 +1,16 @@
+<div class="book">
+  <span class="postId">postId: {{ book.postId }}</span>
+  <span class="id">id: {{ book.id }}</span>
+  <div class="wrap">
+    <div class="name">{{ book.name }}</div>
+
+    <div class="wrap2">
+      <div class="body">Description: {{ book.body }}</div>
+      <span class="email">Author's email: <a href="mailto:{{ book.email }}">{{ book.email }}</a></span>
+    </div>
+
+  </div>
+</div>
+
+<button (click)="goBack()">go back</button>
+
