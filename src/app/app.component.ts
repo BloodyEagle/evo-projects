@@ -24,26 +24,23 @@ export class AppComponent {
       type: 'warning',
       msg: `Warning. Dangerous situation.`,
     },
-    {
-      type: 'error',
-      msg: `Warning. Dangerous situation.`,
-    },
+
   ];
 
   alert(type: string) {
-    let finded = this.alerts.find(item => item.type == type) ?? {type: 'error'};
+    let finded = this.alerts.find(item => item.type == type) ?? { type: 'error', msg: `Error.`};
     switch (finded.type) {
       case 'success':
-        Notify.success('Success Alert');
+        Notify.success(finded.msg);
         break;
       case 'warning':
-        Notify.warning('Warning Alert');
+        Notify.warning(finded.msg);
         break;
       case 'info':
-        Notify.info('Info Alert');
+        Notify.info(finded.msg);
         break;
       default:
-        Notify.failure('Error Alert');
+        Notify.failure(finded.msg);
         break;
     }
   }
