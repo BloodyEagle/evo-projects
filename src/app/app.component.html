@@ -1,5 +1,5 @@
 <div class="container m-auto">
-  <form class="container my-auto">
+  <form class="container my-auto" >
     <p>Добавить новую книгу</p>
     <div class="mb-3">
       <label class="form-label">Название</label>
@@ -80,7 +80,7 @@
     </div>
     <button
       [disabled]="title.invalid || author.invalid"
-      (click)="createBook()"
+      (click)="createBook(); title.reset(); author.reset()"
       type="submit"
       class="btn btn-primary"
     >
