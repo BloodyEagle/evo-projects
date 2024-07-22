@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'resolve',
     component: ResovledComponent,
     resolve: {
-        posts: postsResolver
+        post: postsResolver
     }
   },
 ];

@@ -10,6 +10,10 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
+  public getPost(id: number): Observable<Post> {
+    return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/' + id , { observe: 'body', responseType: 'json' });
+  }
+
   public getAllPosts(): Observable<Post[]> {
     return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts', { observe: 'body', responseType: 'json' });
   }

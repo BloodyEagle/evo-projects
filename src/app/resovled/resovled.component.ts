@@ -12,9 +12,9 @@ export class ResovledComponent {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(({ posts }) => {
-      this.posts = posts;
-      console.log('Posts list resolved => ',posts);
+    this.activatedRoute.data.subscribe(({ post }) => {
+      this.posts = post;
+      console.log('Post resolved => ',post);
     })
   }
 }
