@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TodoService} from "./services/todo.service";
-import {HttpUserInterceptor} from "./interceptors/http-user.interceptor";
+import {HttpTodoInterceptor} from "./interceptors/http-todo-interceptor.service";
 import {CounterComponent} from './counter/counter.component';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 
@@ -24,7 +24,7 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
   ],
   providers: [TodoService, {
     provide: HTTP_INTERCEPTORS,
-    useClass: HttpUserInterceptor,
+    useClass: HttpTodoInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {CustomHttpParams} from "../classes/custom-http-params";
 
 @Injectable()
-export class HttpUserInterceptor implements HttpInterceptor {
+export class HttpTodoInterceptor implements HttpInterceptor {
 
   constructor() {
   }
