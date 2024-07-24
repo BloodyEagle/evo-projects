@@ -16,11 +16,9 @@ export class AppComponent {
   }
 
   public getAllTodos(event: number): void {
-    console.log('event => ', event);
     this.counter = event;
     this.userService.getTodos(event).subscribe(
       (response: Todo[]): void => {
-        console.log('Todo list => ', response);
         this.show$ = response;
       }
     );

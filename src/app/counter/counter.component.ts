@@ -13,7 +13,6 @@ export class CounterComponent {
   public plus(): void {
     this.counter++;
     this.counterEmitter.emit(this.counter);
-    console.log('counter => ', this.counter);
   }
 
   public minus(): void {
@@ -22,11 +21,9 @@ export class CounterComponent {
       this.counter = 1;
     }
     this.counterEmitter.emit(this.counter);
-    console.log('counter => ', this.counter);
   }
 
   OnInit() {
     this.counterEmitter.emit(this.counter);
-    console.log('counter => ', this.counter);
   }
 }
