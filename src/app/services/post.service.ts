@@ -18,6 +18,10 @@ export class PostService {
     return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts', { observe: 'body', responseType: 'json' });
   }
 
+  public getAllPostsErr(): Observable<Post[]> {
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/post', { observe: 'body', responseType: 'json' });
+  }
+
   public getPostComments(postId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>('https://jsonplaceholder.typicode.com/comments', { observe: 'body', responseType: 'json', params: {postId: postId} });
   }

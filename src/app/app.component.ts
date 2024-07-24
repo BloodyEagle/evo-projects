@@ -39,7 +39,7 @@ export class AppComponent {
 
   public getAllPostsErr(){
     this.clearAll();
-    this.postSerice.getAllPosts().subscribe({
+    this.postSerice.getAllPostsErr().subscribe({
       next: (response: Post[]):void => {
         this.responseType = ResponseType.Posts;
         this.show$ = response;
@@ -49,7 +49,7 @@ export class AppComponent {
         if (err.status === 404 || err.status === 500 || err.status === 0) {
           this.isError = true;
           this.errMessage = err.message;
-          console.log(err.message);
+          console.log('Error =>', err.message);
         }
       },
       complete: ():void => {
