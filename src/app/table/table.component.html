@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover table-bordered m-2">
+  <thead class="fw-bold">
+  <tr>
+    <td>id</td>
+    <td>Name</td>
+    <td>Age</td>
+    <td>City</td>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let person of persons">
+    <tr>
+      <td>{{ person.id }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.city }}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+

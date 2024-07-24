@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ComponentRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {TableComponent} from "./table/table.component";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'First-evo-project';
+  @ViewChild('personsTable', {read: ViewContainerRef})
+  private viewRef!: ViewContainerRef;
+  private componentRef!: ComponentRef<TableComponent>;
+
+  addComponent() {
+    this.viewRef.clear();
+    this.componentRef = this.viewRef.createComponent(TableComponent);
+  }
+
+  deleteComponent() {
+    this.viewRef.clear();
+  }
 }
