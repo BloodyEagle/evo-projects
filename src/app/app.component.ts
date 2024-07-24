@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import {User} from "./interfaces/user";
-import {UserService} from "./services/user.service";
+import {Component} from '@angular/core';
+import {Todo} from "./interfaces/todo";
+import {TodoService} from "./services/todo.service";
+import {CounterComponent} from "./counter/counter.component";
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,25 @@ import {UserService} from "./services/user.service";
 })
 export class AppComponent {
   public show$: any = [];
+  public counter: number = 1;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: TodoService) {
+  }
 
-
-  public getAllPosts(){
-    this.userService.getUsers().subscribe(
-      (response: User[]):void => {
-        console.log('User list => ', response);
+  public getAllTodos(event: number): void {
+    console.log('event => ', event);
+    this.counter = event;
+    this.userService.getTodos(event).subscribe(
+      (response: Todo[]): void => {
+        console.log('Todo list => ', response);
         this.show$ = response;
       }
     );
   }
+
+  ngOnInit(): void {
+    this.getAllTodos(this.counter);
+  }
+
+  protected readonly CounterComponent = CounterComponent;
 }
