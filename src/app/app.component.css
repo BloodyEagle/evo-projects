@@ -1,0 +1,5 @@
+.checked:before {
+  content: url("/assets/img/check-48.png");
+  max-width: 20px;
+  max-height: 20px;
+}

@@ -1,0 +1,10 @@
+<div class="container">
+  <div *ngFor="let post of posts"
+    class="card text-dark bg-light mb-3">
+    <div class="card-header fw-bold"><a class="text-secondary" routerLink="{{ post.id }}">{{ post.title }}</a></div>
+    <div class="card-body">
+      <p class="card-text">{{ post.body | slice:0:50}}...</p>
+    </div>
+  </div>
+</div>
+

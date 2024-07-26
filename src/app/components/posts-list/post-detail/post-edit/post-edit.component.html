@@ -1,0 +1,11 @@
+<div class="flex-column">
+  <form>
+      <label class="form-label" for="title">Введите заголовок</label>
+      <input #postTitle class="form-control mb-3" id="title" value="{{post?.title}}">
+
+      <label class="form-label " for="body">Введите текст поста</label>
+      <textarea #postBody class="form-control mb-3" id="body">{{post?.body}}</textarea>
+
+    <a class="btn btn-primary" (click)="savePost()">Сохранить</a>
+  </form>
+</div>
