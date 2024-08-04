@@ -1,33 +1,38 @@
-<div class="container-md was-validated">
-  <h1 class="h1 fw-bold">Зарегистрируйте ваш аккаунт</h1>
-  <form>
-    <label for="username">Логин</label>
-    <input [(ngModel)]="new_user.username" id="username" name="username" type="text" class="form-control "
-           placeholder="Введите логин"
-           #usernameInput="ngModel" required>
+<div class="container was-validated w-100 m-auto rf">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h1 class="h1 fw-bold">Зарегистрируйте ваш аккаунт</h1>
+      <form>
+        <label for="username">Логин</label>
+        <input [(ngModel)]="new_user.username" id="username" name="username" type="text" class="form-control "
+               placeholder="Введите логин"
+               #usernameInput="ngModel" required>
 
-    <label for="password">Пароль</label>
-    <input [(ngModel)]="new_user.password"
-           id="password" name="password" type="password" class="form-control "
-           placeholder="Введите пароль"
-           #passwordInput="ngModel" required minlength="4">
+        <label for="password">Пароль</label>
+        <input [(ngModel)]="new_user.password"
+               id="password" name="password" type="password" class="form-control "
+               placeholder="Введите пароль"
+               #passwordInput="ngModel" required minlength="4">
 
-    <label for="firstname">Имя</label>
-    <input [(ngModel)]="new_user.firstName" id="firstname" name="firstname" type="text" class="form-control"
-           placeholder="Введите своё имя"
-           #firstnameInput="ngModel" required>
+        <label for="firstname">Имя</label>
+        <input [(ngModel)]="new_user.firstName" id="firstname" name="firstname" type="text" class="form-control"
+               placeholder="Введите своё имя"
+               #firstnameInput="ngModel">
 
-    <label for="lastname">Фамилия</label>
-    <input [(ngModel)]="new_user.lastName" id="lastname" name="lastname" type="text" class="form-control"
-           placeholder="Введите фамилию"
-           #lastnameInput="ngModel" required>
+        <label for="lastname">Фамилия</label>
+        <input [(ngModel)]="new_user.lastName" id="lastname" name="lastname" type="text" class="form-control"
+               placeholder="Введите фамилию"
+               #lastnameInput="ngModel">
 
-    <label for="middlename">Отчество</label>
-    <input [(ngModel)]="new_user.middleName" id="middlename" name="middlename" type="text" class="form-control"
-           placeholder="Введите отчество (при наличии)"
-           #middlenameInput="ngModel" required>
-    <button type="submit" class="btn btn-primary mt-3 w-100"
-            [disabled]="passwordInput.invalid || usernameInput.invalid"
-            (click)="registerUser(new_user)">Зарегистрироваться</button>
-  </form>
+        <label for="middlename">Отчество</label>
+        <input [(ngModel)]="new_user.middleName" id="middlename" name="middlename" type="text" class="form-control"
+               placeholder="Введите отчество (при наличии)"
+               #middlenameInput="ngModel">
+        <button type="submit" class="btn-purple mt-3 w-100 mb-2"
+                [disabled]="passwordInput.invalid || usernameInput.invalid"
+                (click)="registerUser(new_user)">Зарегистрироваться
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

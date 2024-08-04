@@ -1,4 +1,5 @@
-<app-button-icon-text [img]="'assets/img/share.svg'" [title]="'Поделиться'" (click)="openModal(template)"></app-button-icon-text>
+<app-button-icon-text [img]="'assets/img/share.svg'" [title]="'Поделиться'"
+                      (click)="openModal(template)"></app-button-icon-text>
 <ng-template #template>
   <div class="modal-body text-center">
     <div class="share-icons" (click)="callDecline()">

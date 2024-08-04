@@ -7,7 +7,8 @@
   </div>
   <div class="d-flex flex-column justify-content-center">
     <div class="d-flex flex-row">
-      <input #email="ngModel" ngModel email type="email" id="email" name="email" class="rounded-3 border-0" placeholder="Введите ваш email..." required>
+      <input #email="ngModel" ngModel email type="email" id="email" name="email" class="rounded-3 border-0"
+             placeholder="Введите ваш email..." required>
       <button class="btn-purple mx-2" [disabled]="email.invalid" (click)="suscribeSuccess()">Подписаться</button>
     </div>
   </div>

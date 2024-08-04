@@ -13,16 +13,16 @@
   color: var(--c-dark-color-o60);
 }
 .bkb{
-  /*background-color: var(--c-dark-color-o6);*/
+
 }
 .left{
-  width: 1em%;
+  width: 1em;
 }
 .up{
   margin-top: -1.5em !important;
 }
 .err{
-  width: fit-content();
+  width: fit-content;
   text-align: center;
   opacity: 70%;
 }

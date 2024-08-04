@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RecipesService} from "../../services/recipes.service";
 import {GetAllPosts} from "../../interfaces/recipes/get-all-posts";
 import {ToastrService} from "ngx-toastr";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-recipes-manager',
@@ -10,33 +11,28 @@ import {ToastrService} from "ngx-toastr";
 })
 export class RecipesManagerComponent implements OnInit {
   public recipes: GetAllPosts[] = [];
-  constructor(public recipesService: RecipesService, private notifier: ToastrService) {
+
+  constructor(public recipesService: RecipesService, private notifier: ToastrService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.recipesService.getAllRecipes().subscribe({
-      next: recipes => {
+    this.activatedRoute.data.subscribe({
+      next: ({recipes}) => {
         this.recipes = recipes;
-        console.log('Рецепты: ', this.recipes);
-        this.notifier.success('Все рецепты получены');
       },
       error: error => {
-        console.log(error);
-        this.notifier.error('Ошибка получения рецептов: ' + error.error.message);
+        this.notifier.error(error.error.message, 'Ошибка получения рецептов');
       }
     });
   }
 
-  public deleteRecipe(id: string):void{
-    console.log('Del - ',id);
+  public deleteRecipe(id: string): void {
     this.recipesService.deleteRecipe(id).subscribe({
       next: (response) => {
-        console.log('Del - ',response);
         this.recipes = this.recipes.filter(recipe => recipe.id !== id);
       },
       error: (err) => {
-        console.log(err);
-        this.notifier.error('Ошибка удаления рецепта: ' + err.error.message);
+        this.notifier.error(err.error.message, 'Ошибка удаления рецепта');
       },
       complete: () => {
       }

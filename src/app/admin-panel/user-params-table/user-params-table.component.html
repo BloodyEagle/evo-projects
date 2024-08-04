@@ -10,7 +10,8 @@
     <tr *ngFor="let param of params" class="trow">
       <td class="param">{{ param.name }}</td>
       <td *ngIf="param.value.slice(0,3) !== '/d/'" class="value">{{ param.value }}</td>
-      <td *ngIf="param.value.slice(0,3) == '/d/'" class="value">{{ param.value.slice(3) | date:"dd MMMM YYYY": '+3' }}</td>
+      <td *ngIf="param.value.slice(0,3) == '/d/'" class="value">{{ param.value.slice(3) | date:"dd MMMM YYYY": '+3' }}
+      </td>
     </tr>
     </tbody>
   </table>

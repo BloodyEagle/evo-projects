@@ -2,8 +2,8 @@
 <div *ngFor="let comment of comments" class="d-flex flex-row justify-content-start align-items-center w-100 h-100 my-4">
   <img src="{{comment.user.avatar}}" class="rounded-5" width="32" height="32">
   <div class="flex-column">
-    <div class="title">{{comment.user.firstName}} {{comment.user.lastName}}</div>
-    <div class="text mb-1">{{comment.updatedOn | date:"dd MMMM YYYY": '+3'}}</div>
+    <div class="title">{{ comment.user.firstName }} {{ comment.user.lastName }}</div>
+    <div class="text mb-1">{{ comment.updatedOn | date:"dd MMMM YYYY": '+3' }}</div>
     <div class="comment">{{ comment.text }}</div>
   </div>
 </div>

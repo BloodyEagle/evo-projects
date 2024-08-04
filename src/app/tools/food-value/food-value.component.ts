@@ -7,5 +7,5 @@ import {TzFoodValue} from "../../interfaces/recipes/tz-food-value";
   styleUrls: ['./food-value.component.css']
 })
 export class FoodValueComponent {
-  @Input() foodValue: TzFoodValue ={calories: 0, fats: 0, proteins: 0, carbohydrates: 0};
+  @Input() foodValue: TzFoodValue = {calories: 0, fats: 0, proteins: 0, carbohydrates: 0};
 }

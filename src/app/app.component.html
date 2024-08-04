@@ -11,8 +11,9 @@
 
   <div *ngIf="!storage.hideBottomNotify" class="notifyBottom">
     <img src="assets/img/rupor.svg">
-      Хорошие новости! Мы открыли наш интернет-магазин
-    <img (click)="storage.set('notify', 'true'); storage.hideBottomNotify=true" class="close" src="assets/img/close.svg">
+    Хорошие новости! Мы открыли наш интернет-магазин
+    <img (click)="storage.set('notify', 'true'); storage.hideBottomNotify=true" class="close"
+         src="assets/img/close.svg">
   </div>
 
 </div>

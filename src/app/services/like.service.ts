@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Store} from "@ngxs/store";
 import {LikesUpdate} from "../interfaces/likes-interface";
 import {LikesState} from "../store/likes-state";
@@ -7,13 +7,13 @@ import {LikesState} from "../store/likes-state";
   providedIn: 'root'
 })
 export class LikeService {
-  constructor(private store: Store) { }
-
   public likes: any = this.getLikes();
+
+  constructor(private store: Store) {
+  }
 
   public likeRecipe($event: string) {
     this.store.dispatch(new LikesUpdate($event));
-    console.log('Liked: ',$event);
   }
 
   public getLikes() {
@@ -21,7 +21,7 @@ export class LikeService {
   }
 
   public getRecipeLike(id: string) {
-    let likes:any = this.store.selectSnapshot(LikesState.getLikes);
+    let likes: any = this.store.selectSnapshot(LikesState.getLikes);
     return (likes as string[]).includes(id);
   }
 

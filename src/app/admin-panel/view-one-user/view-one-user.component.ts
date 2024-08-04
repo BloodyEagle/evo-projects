@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {GetUsersType} from "../../interfaces/users/get-users-type";
+import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -20,16 +19,13 @@ export class ViewOneUserComponent {
     private router2: Router) {
   }
 
-  public deleteUser(id: string):void{
-    console.log('Del - ',id);
+  public deleteUser(id: string): void {
     this.userService.deleteUser(id).subscribe({
       next: (response) => {
-        console.log('Del - ',response);
         this.router2.navigateByUrl('/admin/users');
       },
       error: (err) => {
-        console.log(err);
-        this.notifier.error('Ошибка удаления пользователя: ' + err.error.message);
+        this.notifier.error(err.error.message, 'Ошибка удаления пользователя');
       },
       complete: () => {
       }
@@ -42,12 +38,9 @@ export class ViewOneUserComponent {
     this.userService.getUser(id).subscribe({
       next: (response) => {
         this.user = response;
-        console.log('Пользователь: ', response);
-        this.notifier.success(response.username,'Пользователь получен: ' );
       },
       error: (err) => {
-        console.log('Ошибка получения пользователя: ',err);
-        this.notifier.error(err.error.message,'Ошибка получения пользователя: ');
+        this.notifier.error(err.error.message, 'Ошибка получения пользователя: ');
       }
     })
   }

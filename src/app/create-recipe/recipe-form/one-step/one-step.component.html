@@ -1,7 +1,7 @@
 <div class="step">
   <div class="bkb">
     <div class="left"></div>
-    <div class="bookmark">Шаг {{counter+1}}</div>
+    <div class="bookmark">Шаг {{ counter + 1 }}</div>
     <div class="right"></div>
   </div>
   <div class="mb-3 row d-flex w-100 py-3 sh up">
@@ -22,7 +22,7 @@
                 id="{{fieldNameDescription+counter}}"
                 name="{{fieldNameDescription}}"
                 required
-                placeholder="Разогреть сковородку до 180 градусов. Затем положить туда репчатый лук">{{valueDescription}}</textarea>
+                placeholder="Разогреть сковородку до 180 градусов. Затем положить туда репчатый лук">{{ valueDescription }}</textarea>
     </div>
   </div>
   <input type="hidden" name="error" [(ngModel)]="error.invalid[counter]">

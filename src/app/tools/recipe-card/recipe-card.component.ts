@@ -10,7 +10,8 @@ import {LikeService} from "../../services/like.service";
 })
 export class RecipeCardComponent {
 
-  constructor(public likeService: LikeService) { }
+  constructor(public likeService: LikeService) {
+  }
 
   @Input() recipe: GetAllPosts = {
     id: '',
@@ -29,8 +30,6 @@ export class RecipeCardComponent {
     createdOn: '',
     updatedOn: ''
   };
-
-
 
 
   protected readonly console = console;

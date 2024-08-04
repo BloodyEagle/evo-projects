@@ -1,5 +1,6 @@
 @import 'ngx-toastr/toastr';
-:root{
+
+:root {
   --c-d-r: 0;
   --c-d-g: 0;
   --c-d-b: 0;
@@ -22,94 +23,93 @@
   --c-red-color: #DD0035 !important;
   --c-red-light-color: #FEE2E2 !important;
 }
+
 .text-dark {
   color: var(--c-dark-color) !important;
 }
+
 .text-dark-o60 {
   color: var(--c-dark-color-o60) !important;
 }
+
 .text-dark-o10 {
   color: var(--c-dark-color-o10) !important;
 }
+
 .text-light {
   color: var(--c-light-color) !important;
 }
+
 .text-light-o60 {
   color: var(--c-light-color-color-o60) !important;
 }
+
 .text-light-o10 {
   color: var(--c-light-color-color-o10) !important;
 }
 
 .inter-italic {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 400;
-          font-style: italic;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: "slnt" 0;
+}
+
 .inter-thin {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 100;
-          font-style: normal;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-thin-italic {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 100;
-          font-style: italic;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: italic;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-regular {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 400;
-          font-style: normal;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-regular-italic {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 400;
-          font-style: italic;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-medium {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 500;
-          font-style: normal;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-medium-italic {
-          font-family: "Inter", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 500;
-          font-style: italic;
-          font-variation-settings:
-            "slnt" 0;
-        }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: italic;
+  font-variation-settings: "slnt" 0;
+}
 
 .inter-bold {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
-  font-variation-settings:
-    "slnt" 0;
+  font-variation-settings: "slnt" 0;
 }
 
 .inter-bold-italic {
@@ -117,31 +117,35 @@
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: italic;
-  font-variation-settings:
-    "slnt" 0;
+  font-variation-settings: "slnt" 0;
 }
 
 body {
   font-family: "Inter", sans-serif !important;
 }
+
 a {
-    color: var(--bs-primary);
-    text-decoration: none;
+  color: var(--bs-primary);
+  text-decoration: none;
 }
+
 .text-14 {
   font-size: 14px !important;
 }
+
 .text-16 {
   font-size: 16px !important;
 }
+
 .text-18 {
   font-size: 18px !important;
 }
+
 .text-24 {
   font-size: 24px !important;
 }
-.btn-purple{
-  /*display: block;*/
+
+.btn-purple {
   background-color: var(--c-purple-color);
   color: var(--c-light-color);
   border-radius: 5px;
@@ -156,14 +160,17 @@ a {
   cursor: pointer;
   border: none;
 }
-.btn-purple:hover{
+
+.btn-purple:hover {
   filter: brightness(120%);;
 }
-.btn-purple:disabled{
+
+.btn-purple:disabled {
   filter: grayscale(70%);
   cursor: not-allowed;
 }
-.btn-lblue{
+
+.btn-lblue {
   background-color: #EEF2FF;
   color: var(--c-purple-color);
   border-radius: 5px;
@@ -178,15 +185,17 @@ a {
   cursor: pointer;
   border: none;
 }
-.btn-lblue:hover{
+
+.btn-lblue:hover {
   filter: hue-rotate(50deg);
 }
-.btn-lblue:disabled{
+
+.btn-lblue:disabled {
   filter: grayscale(70%);
   cursor: not-allowed;
 }
 
-.btn-red{
+.btn-red {
   background-color: var(--c-red-color);
   color: var(--c-light-color);
   border-radius: 5px;
@@ -201,24 +210,30 @@ a {
   cursor: pointer;
   border: none;
 }
-.btn-red:hover{
+
+.btn-red:hover {
   filter: brightness(120%);;
 }
-.fit{
-    width: fit-content;
+
+.fit {
+  width: fit-content;
 }
-.in-bottom-right{
+
+.in-bottom-right {
   position: absolute;
   bottom: 9px;
   right: 25px
 }
-.rounded-30{
+
+.rounded-30 {
   border-radius: 30px !important;
 }
-.rounded-end-30{
+
+.rounded-end-30 {
   border-top-right-radius: 30px !important;
   border-bottom-right-radius: 30px !important;
 }
-.bg-blue{
+
+.bg-blue {
   background-color: var(--c-blue-color);
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -8,6 +8,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class SubscribeComponent {
   public subscriberEmail: string = '';
+
   constructor(private notifier: ToastrService) {
   }
 

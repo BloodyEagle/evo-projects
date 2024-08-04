@@ -1,31 +1,34 @@
 <div class="d-flex flex-column justify-content-start align-items-center w-100 h-100">
 
-<!--  user + delete -->
+  <!--  user + delete -->
   <div class="d-flex flex-row justify-content-between w-100 my-4">
     <app-user-avatar [user]="user"></app-user-avatar>
     <div class="d-block flex-column justify-content-center align-items-center">
       <app-modal-window-confirm class="btn-purple"
-        [title]="'Удалить'"
-        [img]="'assets/img/warning.svg'"
-        [message]="'Эту операцию нельзя будет отменить!\n Удалить?'"
-        (onConfirm)="$event && deleteUser(user.id)"></app-modal-window-confirm>
+                                [title]="'Удалить'"
+                                [img]="'assets/img/warning.svg'"
+                                [message]="'Эту операцию нельзя будет отменить!\n Удалить?'"
+                                (onConfirm)="$event && deleteUser(user.id)"></app-modal-window-confirm>
     </div>
   </div>
 
-<!--  ststistic-->
+  <!--  ststistic-->
   <div class="d-flex flex-row justify-content-between w-100 gap-2 my-3">
-    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Всего рецептов'" [param]="user.posts.length.toString()"></app-stat-block>
-    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Всего комментариев'" [param]="user.comments.length.toString()"></app-stat-block>
-    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Статус'" [param]="user.isActive ? 'Активен' : 'Не активен'"></app-stat-block>
+    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Всего рецептов'"
+                    [param]="user.posts.length.toString()"></app-stat-block>
+    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Всего комментариев'"
+                    [param]="user.comments.length.toString()"></app-stat-block>
+    <app-stat-block class="rounded-3 p-3 w-100 sh" [title]="'Статус'"
+                    [param]="user.isActive ? 'Активен' : 'Не активен'"></app-stat-block>
   </div>
 
-<!--  рецепты-->
-  <div class="d-flex flex-row">
+  <!--  рецепты-->
+  <div class="d-flex flex-row flex-wrap justify-content-center">
     <app-recipe-adm-card *ngFor="let recipe of user.posts" [recipe]="recipe"></app-recipe-adm-card>
   </div>
 
 
-<!--  user info -->
+  <!--  user info -->
   <app-user-params-table
     [params]="[{name: 'Фамилия', value: user.lastName},
     {name: 'Имя', value: user.firstName},

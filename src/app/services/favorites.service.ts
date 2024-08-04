@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Store} from "@ngxs/store";
 import {FavoritesUpdate} from "../interfaces/favorites-interface";
 import {FavoritesState} from "../store/favorites-state";
@@ -7,13 +7,13 @@ import {FavoritesState} from "../store/favorites-state";
   providedIn: 'root'
 })
 export class FavoritesService {
-  constructor(private store: Store) { }
-
   public favorites: any = this.getFavorites();
+
+  constructor(private store: Store) {
+  }
 
   public intoFavorites($event: string) {
     this.store.dispatch(new FavoritesUpdate($event));
-    console.log('Liked: ',$event);
   }
 
   public getFavorites() {
@@ -21,7 +21,7 @@ export class FavoritesService {
   }
 
   public getRecipeFav(id: string) {
-    let fav:any = this.store.selectSnapshot(FavoritesState.getFavorites);
+    let fav: any = this.store.selectSnapshot(FavoritesState.getFavorites);
     return (fav as string[]).includes(id);
   }
 

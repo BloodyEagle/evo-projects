@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-modal-window-confirm',
@@ -10,16 +10,17 @@ export class ModalWindowConfirmComponent {
   modalRef?: BsModalRef;
   @Input() title: string = 'Всплывающее окно';
   @Input() type: 'img' | 'text' = 'text';
-  @Input() message: string =  'Вы уверены?';
+  @Input() message: string = 'Вы уверены?';
   @Input() img: string = '';
-  @Input() buttons: {confirmMsg: string, declineMsg: string} = {confirmMsg: 'Да', declineMsg: 'Нет'}
+  @Input() buttons: { confirmMsg: string, declineMsg: string } = {confirmMsg: 'Да', declineMsg: 'Нет'}
 
   @Output() onConfirm = new EventEmitter<boolean>();
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) {
+  }
 
   openModal(template: TemplateRef<void>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+    this.modalRef = this.modalService.show(template, {class: 'modal-md'});
   }
 
   callConfirm(): void {

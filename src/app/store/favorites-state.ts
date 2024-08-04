@@ -12,15 +12,13 @@ import {FavoritesUpdate} from "../interfaces/favorites-interface";
 @Injectable()
 export class FavoritesState {
   @Selector()
-  static getFavorites(state: FavoritesState):FavoritesState {
+  static getFavorites(state: FavoritesState): FavoritesState {
     return state;
   }
 
   @Action(FavoritesUpdate)
   updateLikesModel(ctx: StateContext<string[]>, action: FavoritesUpdate) {
-    console.log('updateFavoritesModel *********** ',ctx, action);
     let state = ctx.getState();
-    console.log('state = ', state);
     if (state.find(fav => fav === action.id)) {
       state = state.filter(fav => fav !== action.id);
     }

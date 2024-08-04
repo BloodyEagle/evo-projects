@@ -2,7 +2,7 @@
 
   <div class="d-flex flex-row justify-content-between 1">
     <div class="d-flex flex-column justify-content-between button-block p-2 mb-4">
-      <h1 class="title">{{ recipe.title }}</h1>
+      <h1 class="title" #top>{{ recipe.title }}</h1>
       <div class="d-flex flex-row flex-nowrap justify-content-center align-items-stretch icon-info">
         <app-author class=""
                     [avatar]="recipe.author.avatar"
@@ -21,7 +21,6 @@
         (checkChange)="favoritesService.intoFavorites(recipe.id)"></app-button-icon-text>
       <app-button-icon-text [img]="'assets/img/print.svg'" [title]="'Распечатать'"
                             onClick="window.print()"></app-button-icon-text>
-      <!--      <app-button-icon-text [img]="'assets/img/share.svg'" [title]="'Поделиться'"></app-button-icon-text>-->
       <app-modal-window-share [title]="shareButton">
         <div class="d-flex flex-row justify-content-center gap-3 my-3">
           <img src="assets/img/tg-48.png" class="share-icon" alt="Telegram">

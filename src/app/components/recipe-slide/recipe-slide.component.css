@@ -1,6 +1,5 @@
 .slide{
-  /*max-height: 500px;
-  min-height: 500px*/;
+
 }
 .img {
   width: 100%;
@@ -8,9 +7,6 @@
   min-width: 100% !important;
   min-height: 100% !important;
   object-fit: cover;
-  /*object-fit: cover;
-  object-position: center center;
-  width: calc(100vh);*/
 }
 .author{
   width: fit-content;

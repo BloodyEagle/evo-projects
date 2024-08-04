@@ -7,10 +7,10 @@
     <div class="cell controls">Категория</div>
   </div>
   <div class="row" *ngFor="let recipe of recipes">
-    <div class="cell title">{{recipe.title}}</div>
-    <div class="cell desc">{{recipe.body | slice:0:100}}...</div>
-    <div class="cell id">{{recipe.id}}</div>
-    <div class="cell category">{{recipe.tags}}</div>
+    <div class="cell title">{{ recipe.title }}</div>
+    <div class="cell desc">{{ recipe.body | slice:0:100 }}...</div>
+    <div class="cell id">{{ recipe.id }}</div>
+    <div class="cell category">{{ recipe.tags }}</div>
     <div class="cell contols"><a routerLink="{{recipe.id}}"><img src="assets/img/edit.svg"></a>&nbsp;
       <app-modal-window-confirm
         [title]="'assets/img/trash.svg'"

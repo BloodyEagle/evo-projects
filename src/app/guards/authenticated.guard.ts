@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -7,7 +7,7 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {UserService} from "../services/user.service";
 
 @Injectable({
@@ -16,6 +16,7 @@ import {UserService} from "../services/user.service";
 export class AuthenticatedGuard implements CanActivate, CanActivateChild {
   constructor(private userService: UserService, private router: Router) {
   }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -24,6 +25,7 @@ export class AuthenticatedGuard implements CanActivate, CanActivateChild {
     }
     return this.router.navigateByUrl('/access-denied');
   }
+
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

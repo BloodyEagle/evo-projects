@@ -1,32 +1,40 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from "./app.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {RecipesListComponent} from "./components/recipes-list/recipes-list.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {MainPageComponent} from "./components/main-page/main-page.component";
 import {AuthorizationComponent} from "./components/authorization/authorization.component";
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {RecipeDetailComponent} from "./components/recipe-detail/recipe-detail.component";
-import {AdminPageComponent} from "./admin-panel/admin-page/admin-page.component";
-import {UsersListComponent} from "./admin-panel/users-list/users-list.component";
-import {RecipesManagerComponent} from "./admin-panel/recipes-manager/recipes-manager.component";
 import {AccessDeniedComponent} from "./components/access-denied/access-denied.component";
 import {AdminGuard} from "./guards/admin-guard.service";
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
+import {recipesResolver} from "./services/recipes.resolver";
+import {oneRecipeResolver} from "./services/one-recipe.resolver";
 
 const routes: Routes = [
 
   {
     path: '',
-    component: MainPageComponent
+    component: MainPageComponent,
+    resolve: {
+      recipes: recipesResolver
+    }
   },
   {
     path: 'recipes',
-    component: RecipesListComponent},
+    component: RecipesListComponent,
+    resolve: {
+      recipes: recipesResolver
+    }
+  },
 
   {
     path: 'recipes/:id',
-    component: RecipeDetailComponent
+    component: RecipeDetailComponent,
+    resolve: {
+      recipe: oneRecipeResolver
+    }
   },
   {
     path: 'authorization',
@@ -62,4 +70,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

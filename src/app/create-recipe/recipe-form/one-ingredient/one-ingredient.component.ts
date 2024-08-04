@@ -1,7 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {TzIngredients} from "../../../interfaces/recipes/tz-ingredients";
-import {TimeInterval} from "rxjs/internal/operators/timeInterval";
-import {interval} from "rxjs";
 
 @Component({
   selector: 'app-one-ingredient',
@@ -15,12 +13,9 @@ export class OneIngredientComponent {
   @Input() valueDescription: string = '';
   @Input() counter: number = 0;
   @Input() model: TzIngredients = {title: '', description: ''};
-  @Input() error: {invalid:boolean[]} = {invalid: [false]};
+  @Input() error: { invalid: boolean[] } = {invalid: [false]};
 
   constructor() {
-    /*if (!this.error)
-      this.error = {invalid: [false]};
-      */
   }
 
 }

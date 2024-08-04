@@ -13,9 +13,8 @@ export class OneStepComponent {
   @Input() valueDescription: string = '';
   @Input() counter: number = 0;
   @Input() model: TzCookingSteps = {title: '', description: ''};
-  @Input() error!: {invalid:boolean[]};
+  @Input() error!: { invalid: boolean[] };
 
   constructor() {
-    console.log('step ',this.counter, '-',this.error);
   }
 }

@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {GetAllPosts} from "../../../interfaces/recipes/get-all-posts";
 import {GetUserPostType} from "../../../interfaces/recipes/get-user-post-type";
 
 @Component({

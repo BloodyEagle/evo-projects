@@ -6,6 +6,8 @@ import {RecipesManagerComponent} from "./recipes-manager/recipes-manager.compone
 import {AdminGuard} from "../guards/admin-guard.service";
 import {ViewOneUserComponent} from "./view-one-user/view-one-user.component";
 import {EditRecipeComponent} from "./edit-recipe/edit-recipe.component";
+import {recipesResolver} from "../services/recipes.resolver";
+import {oneRecipeResolver} from "../services/one-recipe.resolver";
 
 const routes: Routes = [
   {
@@ -29,11 +31,18 @@ const routes: Routes = [
       },
       {
         path: 'recipes',
-        component: RecipesManagerComponent
+        component: RecipesManagerComponent,
+        resolve: {
+          recipes: recipesResolver
+        }
       },
       {
        path: 'recipes/:id',
-        component: EditRecipeComponent      }
+        component: EditRecipeComponent,
+        resolve: {
+          recipe: oneRecipeResolver
+        }
+      }
     ]
   },
  ];

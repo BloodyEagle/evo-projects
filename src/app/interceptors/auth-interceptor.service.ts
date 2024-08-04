@@ -11,11 +11,9 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    //console.log('User interceptor => ', request );
     request = request.clone({
       headers: this.userService.jwtToken !== '' ? new HttpHeaders().set('Authorization', 'Bearer ' + this.userService.jwtToken) : request.headers
     });
-    //console.log('Auth interceptor after modify => ', request.headers);
     return next.handle(request);
   }
 

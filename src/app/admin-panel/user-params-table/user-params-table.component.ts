@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./user-params-table.component.css']
 })
 export class UserParamsTableComponent {
-  @Input() params: {name: string, value: string}[] = []
+  @Input() params: { name: string, value: string }[] = []
 }

@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {RecipeFormComponent} from "./recipe-form/recipe-form.component";
 
 
 const routes: Routes = [
   {
-      path: '',
-      component: RecipeFormComponent,
-      pathMatch: 'full'
+    path: '',
+    component: RecipeFormComponent,
+    pathMatch: 'full'
   }
 ];
 
@@ -15,4 +15,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CreateRecipeRoutingModule { }
+export class CreateRecipeRoutingModule {
+}

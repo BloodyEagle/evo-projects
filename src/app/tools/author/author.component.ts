@@ -6,8 +6,8 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent {
-    @Input() avatar: string | undefined = '';
-    @Input() title: string = '';
-    @Input() text: string = '';
-    @Input() isDate: boolean = false;
+  @Input() avatar: string | undefined = '';
+  @Input() title: string = '';
+  @Input() text: string = '';
+  @Input() isDate: boolean = false;
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-modal-window-share',
@@ -9,14 +9,15 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class ModalWindowShareComponent {
   modalRef?: BsModalRef;
   @Input() type: 'img' | 'text' = 'text';
-  @Input() buttons: {declineMsg: string} = { declineMsg: 'Закрыть'}
+  @Input() buttons: { declineMsg: string } = {declineMsg: 'Закрыть'}
 
   @Output() onConfirm = new EventEmitter<boolean>();
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) {
+  }
 
   openModal(template: TemplateRef<void>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+    this.modalRef = this.modalService.show(template, {class: 'modal-md'});
   }
 
   callDecline(): void {

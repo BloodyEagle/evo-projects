@@ -3,6 +3,8 @@ import {Meta, Title} from "@angular/platform-browser";
 import {RecipesService} from "../../services/recipes.service";
 import {GetAllPosts} from "../../interfaces/recipes/get-all-posts";
 import {ToastrService} from "ngx-toastr";
+import {ActivatedRoute} from "@angular/router";
+import {LikeService} from "../../services/like.service";
 
 
 @Component({
@@ -10,7 +12,7 @@ import {ToastrService} from "ngx-toastr";
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent  implements OnInit {
+export class MainPageComponent implements OnInit {
   public sliderRecipes: GetAllPosts[] = []
 
   constructor(
@@ -18,7 +20,10 @@ export class MainPageComponent  implements OnInit {
     private meta: Meta,
     public recipesService: RecipesService,
     private notifier: ToastrService,
-    ) { }
+    private activatedRoute: ActivatedRoute,
+    private likeService: LikeService
+  ) {
+  }
 
 
   ngOnInit() {
@@ -28,19 +33,17 @@ export class MainPageComponent  implements OnInit {
       {name: 'og:description', content: 'У нас вы найдете самые вкусные рецепты со всего света'}])
     this.meta.addTag({name: 'description', content: 'Сборник кулинарных рецептов, для всей семьи'})
 
-    this.recipesService.getAllRecipes().subscribe({
-      next: recipes => {
-        this.recipesService.allRecipes = recipes
-        this.sliderRecipes = recipes.slice(0,3);
-        console.log('Все рецепты *** ',this.recipesService.allRecipes);
+    this.activatedRoute.data.subscribe({
+      next: ({recipes}) => {
+        this.recipesService.allRecipes = recipes;
+        this.sliderRecipes = recipes.slice(0, 3);
         this.recipesService.fillAllRandom();
-        console.log('=====: ',this.recipesService.fullRandomRecipes.slice(3,6));
-        //this.recipesService.fullRandomRecipes.slice(3,6)
+        this.likeService.getLikes();
       },
       error: error => {
-        console.log(error);
-        this.notifier.error('Ошибка получения рецептов: ' + error.error.message);
+        this.notifier.error(error.error.message, 'Ошибка получения рецептов');
       }
     });
   }
+
 }

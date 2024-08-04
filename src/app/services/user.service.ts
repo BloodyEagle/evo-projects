@@ -46,7 +46,6 @@ export class UserService {
 
   public logoutUser(): void {
     this.store.reset(AuthUpdate);
-    console.log('Logout user: ', this.store.selectSnapshot(AuthState.getAuthObject));
     this.router.navigateByUrl('/');
   }
 

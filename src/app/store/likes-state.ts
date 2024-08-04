@@ -13,15 +13,13 @@ import {LikesUpdate} from "../interfaces/likes-interface";
 @Injectable()
 export class LikesState {
   @Selector()
-  static getLikes(state: LikesState):LikesState {
+  static getLikes(state: LikesState): LikesState {
     return state;
   }
 
   @Action(LikesUpdate)
   updateLikesModel(ctx: StateContext<string[]>, action: LikesUpdate) {
-    console.log('updateLikesModel *********** ',ctx, action);
     let state = ctx.getState();
-    console.log('state = ', state);
     if (state.find(like => like === action.id)) {
       state = state.filter(like => like !== action.id);
     }
