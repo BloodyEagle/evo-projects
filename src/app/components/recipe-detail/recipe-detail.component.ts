@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, AfterViewChecked, ViewChild} from '@angular/core';
 import {RecipesService} from "../../services/recipes.service";
 import {GetOnePost} from "../../interfaces/recipes/get-one-post";
 import {ToastrService} from 'ngx-toastr';
@@ -84,5 +84,9 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
+  }
+
+  ngAfterViewChecked() {
+    this.element?.nativeElement.scrollIntoView({behavior: 'smooth'});
   }
 }
