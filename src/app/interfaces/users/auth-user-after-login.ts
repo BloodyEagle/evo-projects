@@ -1,4 +1,3 @@
-import {Roles} from "./Roles";
 
 export interface AuthUserAfterLogin {
   id: string;
@@ -10,4 +9,10 @@ export interface AuthUserAfterLogin {
   username: string;
   jwtToken: string;
   expiresIn: number;
+}
+
+export class AuthUpdate{
+  static readonly type = '[Auth] Update';
+
+  constructor(public payload: AuthUserAfterLogin) {}
 }

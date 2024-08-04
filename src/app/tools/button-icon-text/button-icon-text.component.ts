@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-button-icon-text',
@@ -8,4 +8,12 @@ import {Component, Input} from '@angular/core';
 export class ButtonIconTextComponent {
   @Input() title: string = '';
   @Input() img: string = '';
+  @Input() check: boolean = false;
+  @Input() checkImg: string = '';
+  @Output() checkChange = new EventEmitter<void>();
+
+  toggleCheck() {
+    this.check = !this.check;
+    this.checkChange.emit();
+  }
 }

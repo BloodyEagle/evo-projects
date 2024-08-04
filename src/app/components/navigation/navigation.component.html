@@ -34,7 +34,8 @@
         <li>
           <a class="dropdown-item">Настройки аккаунта</a>
         </li>
-        <li *ngIf="user?.role == Roles.ADMIN">
+<!--        <li *ngIf="user?.role == Roles.ADMIN">-->
+        <li>
           <a routerLink="admin" class="dropdown-item">Администрирование</a>
         </li>
         <li>

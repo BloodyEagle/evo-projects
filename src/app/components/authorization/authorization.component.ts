@@ -3,7 +3,7 @@ import {AuthUserDto} from "../../interfaces/users/auth-user-dto";
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import {AuthUserAfterLogin} from "../../interfaces/users/auth-user-after-login";
+import {AuthUpdate, AuthUserAfterLogin} from "../../interfaces/users/auth-user-after-login";
 
 @Component({
   selector: 'app-authorization',
@@ -18,13 +18,11 @@ export class AuthorizationComponent {
  constructor(private userService: UserService, private router: Router, private notifier: ToastrService ) { }
 
   loginUser(user: AuthUserDto, fastJwt: boolean = false): void {
-    this.userService.loginUser(user).subscribe(
+    this.userService.loginUser(user, fastJwt).subscribe(
       {
         next: (response: AuthUserAfterLogin):void => {
-          this.userService.authenticatedUser = response;
+          this.userService.store.dispatch(new AuthUpdate(response));
           this.notifier.success('Пользователь ' + this.userService.authenticatedUser.username + ' успешно авторизован');
-          this.userService.jwtToken = response.jwtToken;
-          this.userService.isAuthorized = true;
           console.log('User login => ', this.userService.authenticatedUser.username, 'token=',this.userService.jwtToken);
           this.router.navigateByUrl('/');
         },

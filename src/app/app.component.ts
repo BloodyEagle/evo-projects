@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 
-import { NavigationComponent} from "./components/navigation/navigation.component";
+
 import {BrowserStorageService} from "./services/browser-storage.service";
+import {Store} from "@ngxs/store";
+import {AuthState} from "./store/auth-state";
+
+
 
 
 @Component({
@@ -12,11 +16,13 @@ import {BrowserStorageService} from "./services/browser-storage.service";
 export class AppComponent implements OnInit {
   title = 'Foodie';
 
-  constructor(public storage: BrowserStorageService) {
+  constructor(public storage: BrowserStorageService, private store: Store) {
     //storage.remove('notify');
   }
 
   ngOnInit(): void {
+    console.log('Token from state ', this.store.selectSnapshot(AuthState.getToken));
+    /*this.store.dispatch(new LikesUpdate({id: '1', liked: true}));*/
 
   }
 }

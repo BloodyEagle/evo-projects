@@ -2,13 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {RecipesService} from "../../services/recipes.service";
 import {GetOnePost} from "../../interfaces/recipes/get-one-post";
 import { ToastrService } from 'ngx-toastr';
-import {ActivatedRoute, Router} from "@angular/router";
-import {GetAllPosts} from "../../interfaces/recipes/get-all-posts";
-import {Author} from "../../interfaces/users/author";
+import {ActivatedRoute} from "@angular/router";
 import {Title, Meta} from "@angular/platform-browser";
 import {UserService} from "../../services/user.service";
 import {Subscription} from "rxjs";
 import {ButtonIconTextComponent} from "../../tools/button-icon-text/button-icon-text.component";
+import {FavoritesService} from "../../services/favorites.service";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -27,7 +26,8 @@ export class RecipeDetailComponent implements OnInit{
               private activatedRoute: ActivatedRoute,
               private title: Title,
               private meta: Meta,
-              public userService: UserService) {
+              public userService: UserService,
+              public favoritesService: FavoritesService) {
 
   }
 

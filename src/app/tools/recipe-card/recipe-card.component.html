@@ -1,5 +1,5 @@
 <div class="">
-<app-like [id]="recipe.id" class="fit" (likedChange)="likeRecipe($event)"></app-like>
+<app-like [id]="recipe.id"  [liked]="likeService.getRecipeLike(recipe.id)" class="fit" (likedChange)="likeService.likeRecipe($event);"></app-like>
 <a  routerLink="/recipes/{{recipe.id}}" class="d-flex align-self-stretch a-card">
   <div class="r-card m-3 align-self-stretch" style="width: 18rem;">
 

@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {GetAllPosts} from "../../interfaces/recipes/get-all-posts";
-import {Author} from "../../interfaces/users/author";
+import {LikesUpdate} from "../../interfaces/likes-interface";
+import {LikeService} from "../../services/like.service";
 
 @Component({
   selector: 'app-recipe-card',
@@ -8,7 +9,8 @@ import {Author} from "../../interfaces/users/author";
   styleUrls: ['./recipe-card.component.css']
 })
 export class RecipeCardComponent {
-  //recipe: GetAllPosts!;
+
+  constructor(public likeService: LikeService) { }
 
   @Input() recipe: GetAllPosts = {
     id: '',
@@ -28,7 +30,9 @@ export class RecipeCardComponent {
     updatedOn: ''
   };
 
-  likeRecipe($event: { liked: boolean; id: string }) {
-    console.log('Liked: ',$event.liked, $event.id);
-  }
+
+
+
+  protected readonly console = console;
+  protected readonly LikesUpdate = LikesUpdate;
 }

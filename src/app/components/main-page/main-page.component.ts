@@ -4,6 +4,7 @@ import {RecipesService} from "../../services/recipes.service";
 import {GetAllPosts} from "../../interfaces/recipes/get-all-posts";
 import {ToastrService} from "ngx-toastr";
 
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -16,7 +17,8 @@ export class MainPageComponent  implements OnInit {
     private title: Title,
     private meta: Meta,
     public recipesService: RecipesService,
-    private notifier: ToastrService ) { }
+    private notifier: ToastrService,
+    ) { }
 
 
   ngOnInit() {
@@ -25,28 +27,6 @@ export class MainPageComponent  implements OnInit {
       {name: 'og:title', content: 'Сборник кулинарных рецептов, для всей семьи'},
       {name: 'og:description', content: 'У нас вы найдете самые вкусные рецепты со всего света'}])
     this.meta.addTag({name: 'description', content: 'Сборник кулинарных рецептов, для всей семьи'})
-
-    /*this.recipesService.getAllRecipes(3).subscribe({
-      next: recipes => {
-        this.sliderRecipes = recipes
-
-        this.recipesService.getAllRecipes().subscribe({
-          next: recipes => {
-            this.recipesService.allRecipes = recipes
-            console.log('Все рецепты *** ',this.recipesService.allRecipes);
-            this.recipesService.fillAllRandom();
-          },
-          error: error => {
-            console.log(error);
-            this.notifier.error('Ошибка получения рецептов: ' + error.error.message);
-          }
-        });
-      },
-      error: error => {
-        console.log('error ->', error);
-        this.notifier.error('Ошибка получения рецептов: ' + error.error.message);
-      }
-    });*/
 
     this.recipesService.getAllRecipes().subscribe({
       next: recipes => {

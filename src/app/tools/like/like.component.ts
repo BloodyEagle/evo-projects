@@ -10,10 +10,10 @@ export class LikeComponent {
   @Input() unlikeIcon: string = 'assets/img/unliked.svg';
   @Input() liked: boolean = false;
   @Input() id: string = '';
-  @Output() likedChange = new EventEmitter<{liked: boolean, id: string}>();
+  @Output() likedChange = new EventEmitter<string>();
 
   toggleLike() {
     this.liked = !this.liked;
-    this.likedChange.emit({liked: this.liked, id: this.id});
+    this.likedChange.emit(this.id);
   }
 }

@@ -3,39 +3,35 @@ import {HttpClient} from "@angular/common/http";
 import {RegisterDto} from "../interfaces/users/register-dto";
 import {map, Observable} from "rxjs";
 import {AuthUserDto} from "../interfaces/users/auth-user-dto";
-import {AuthUserAfterLogin} from "../interfaces/users/auth-user-after-login";
+import {AuthUpdate, AuthUserAfterLogin} from "../interfaces/users/auth-user-after-login";
 import {Router} from "@angular/router";
 import {GetUsersType} from "../interfaces/users/get-users-type";
 import {OmitTypeClass} from "../interfaces/users/omit-type-class";
+import {Store} from "@ngxs/store";
+import {AuthState} from "../store/auth-state";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  public urlRegex: RegExp = /^((http|https|ftp|www):\/\/)?([a-zA-Z0-9~!@#$%^&*()_\-=+\\\/?.:;',]*)(\.)([a-zA-Z0-9~!@#$%^&*()_\-=+\\\/?.:;',]+)/g;
 
-  private _jwtToken: string = '';
-  private _authenticatedUser!: AuthUserAfterLogin;
-  public isAuthorized: boolean = false;
-  public urlRegex: RegExp = /^((http|https|ftp|www):\/\/)?([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)(\.)([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]+)/g;
-
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, public store: Store) {
   }
 
   get jwtToken(): string {
-    return this._jwtToken;
-  }
-
-  set jwtToken(value: string) {
-    this._jwtToken = value;
+    return this.store.selectSnapshot(AuthState.getToken);
   }
 
   get authenticatedUser(): AuthUserAfterLogin {
-    return this._authenticatedUser;
+    return this.store.selectSnapshot(AuthState.getAuthObject);
   }
 
-  set authenticatedUser(value: AuthUserAfterLogin) {
-    this._authenticatedUser = value;
+  get isAuthorized(): boolean {
+    return this.store.selectSnapshot(AuthState.getToken) !== ''
+      && this.store.selectSnapshot(AuthState.getToken) !== null && this.store.selectSnapshot(AuthState.getToken) !== undefined;
   }
+
   public registerUser(user: RegisterDto): Observable<RegisterDto> {
     return this.http.post<RegisterDto>('https://evo-academy.wckz.dev/api/cooking-blog/users/registration',
       user,
@@ -49,14 +45,13 @@ export class UserService {
   }
 
   public logoutUser(): void {
-    this.jwtToken = '';
-    this.authenticatedUser = {} as AuthUserAfterLogin;
-    this.isAuthorized = false;
+    this.store.reset(AuthUpdate);
+    console.log('Logout user: ', this.store.selectSnapshot(AuthState.getAuthObject));
     this.router.navigateByUrl('/');
   }
 
   public getAllUsers(): Observable<GetUsersType[]> {
-    return this.http.get<GetUsersType[]>('https://evo-academy.wckz.dev/api/cooking-blog/users');//, { observe: 'body', responseType: 'json'});
+    return this.http.get<GetUsersType[]>('https://evo-academy.wckz.dev/api/cooking-blog/users');
   }
 
   public getUser(id: string): Observable<OmitTypeClass> {
@@ -66,7 +61,6 @@ export class UserService {
           user.posts.map(
             post => {
               post.image = post.image.match(this.urlRegex) ? post.image : '/assets/img/placeholder.jpg';
-
             }
           )
           return user;
@@ -78,4 +72,5 @@ export class UserService {
   public deleteUser(id: string): Observable<any> {
     return this.http.delete<any>('https://evo-academy.wckz.dev/api/cooking-blog/users/' + id);
   }
+
 }

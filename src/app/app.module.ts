@@ -36,6 +36,12 @@ import {BROWSER_STORAGE, BrowserStorageService} from "./services/browser-storage
 import { RecipeSlideComponent } from './components/recipe-slide/recipe-slide.component';
 import { WhyWeComponent } from './components/why-we/why-we.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import {NgxsModule} from "@ngxs/store";
+import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
+import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
+import {AuthState} from "./store/auth-state";
+import {LikesState} from "./store/likes-state";
+import {FavoritesState} from "./store/favorites-state";
 
 
 @NgModule({
@@ -64,6 +70,9 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
         ToastrModule.forRoot({positionClass: 'toast-top-center'}),
         ModalModule.forRoot(),
         CarouselModule.forRoot(),
+        NgxsModule.forRoot([AuthState, LikesState, FavoritesState], {developmentMode:  true}),
+        NgxsReduxDevtoolsPluginModule.forRoot(),
+        NgxsLoggerPluginModule.forRoot(),
     ],
     providers: [
         {provide: LOCALE_ID, useValue: 'ru'},
