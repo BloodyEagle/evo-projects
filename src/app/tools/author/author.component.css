@@ -1,0 +1,19 @@
+.title{
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  color: var(--c-dark-color) !important;
+}
+.text{
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.94px;
+  letter-spacing: -0.02em;
+  color: var(--c-dark-color-o60);
+}
+img{
+  margin-right: 0.5em;
+}

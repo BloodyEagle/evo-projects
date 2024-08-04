@@ -1,0 +1,26 @@
+<div class="table">
+    <div class="row head">
+      <div class="cell t-user">Пользователь</div>
+      <div class="cell t-status">Статус</div>
+      <div class="cell t-role">Роль</div>
+      <div class="cell t-contols">&nbsp;</div>
+    </div>
+    <div class="row" *ngFor="let user of users">
+      <div class="cell t-user"><app-author
+        [avatar]="user.avatar"
+        [title]="user.firstName+' '+user.lastName"
+        [text]="user.username"></app-author></div>
+      <div class="cell t-status"><span [ngClass]="{'active': user.isActive}">{{user.isActive ? 'Активен' : 'не активен'}}</span></div>
+      <div class="cell t-role">{{user.role == Roles.ADMIN ? 'Администратор' : 'Пользователь'}}</div>
+      <div class="cell t-contols">
+        <a routerLink="{{user.id}}"><img src="assets/img/edit1.svg"></a>
+        <app-modal-window-confirm
+          [title]="'assets/img/trash.svg'"
+          [img]="'assets/img/warning.svg'"
+          [type]="'img'"
+          [message]="'Эту операцию нельзя будет отменить!\n Удалить?'"
+          (onConfirm)="$event && deleteUser(user.id)"></app-modal-window-confirm>
+      </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

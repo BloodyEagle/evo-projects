@@ -1,0 +1,36 @@
+.ingredient{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5em;
+  border-bottom: 1px solid var(--c-dark-color-o10);
+}
+.ing-title{
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 43.57px;
+  letter-spacing: -0.04em;
+}
+.ing-subtitle{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  letter-spacing: -0.04em;
+}
+.text{
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  letter-spacing: -0.02em;
+  margin-left: 1em;
+}
+.checked {
+  color: var(--c-dark-color-o60);
+  text-decoration: line-through;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+ }

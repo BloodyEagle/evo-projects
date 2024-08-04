@@ -1,0 +1,79 @@
+<div class="d-flex flex-column justify-content-start">
+
+  <div class="d-flex flex-row justify-content-between 1">
+    <div class="d-flex flex-column justify-content-between button-block p-2 mb-4">
+      <h1 class="title">{{ recipe.title }}</h1>
+      <div class="d-flex flex-row flex-nowrap justify-content-center align-items-stretch icon-info">
+        <app-author class=""
+                    [avatar]="recipe.author.avatar"
+                    [title]="recipe.author.firstName + ' ' + recipe.author.lastName"
+                    [text]="recipe.createdOn"
+                    [isDate]="true"></app-author>
+        <app-cooking-time [timeCooking]="recipe.timeCooking" [showTitle]="true"></app-cooking-time>
+        <app-tags [tags]="recipe.tags"></app-tags>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between align-items-start button-block p-2 but">
+      <app-button-icon-text [img]="'assets/img/star.svg'" [title]="'В&nbsp;избранное'"></app-button-icon-text>
+      <app-button-icon-text [img]="'assets/img/print.svg'" [title]="'Распечатать'"
+                            onClick="window.print()"></app-button-icon-text>
+      <!--      <app-button-icon-text [img]="'assets/img/share.svg'" [title]="'Поделиться'"></app-button-icon-text>-->
+      <app-modal-window-share [title]="shareButton">
+        <div class="d-flex flex-row justify-content-center gap-3 my-3">
+          <img src="assets/img/tg-48.png" class="share-icon">
+          <img src="assets/img/vk-48.png" class="share-icon">
+          <img src="assets/img/ok-48.png" class="share-icon">
+        </div>
+      </app-modal-window-share>
+    </div>
+  </div>
+
+  <div class="d-flex flex-sm-column flex-md-column flex-lg-row  justify-content-between gap-4">
+    <div class="d-sm-flex flex-sm-fill">
+      <img src="{{recipe.image}}" class="img-fluid rounded-30 w-100 mainimg">
+    </div>
+
+    <app-food-value [foodValue]="recipe.foodValue"></app-food-value>
+  </div>
+
+  <div class="body my-4">{{ recipe.body }}</div>
+
+  <div class="d-flex flex-row justify-content-between align-items-start">
+    <div class="d-flex flex-column w-50 p-3 justify-content-start align-items-stretch">
+
+      <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
+      <app-steps [steps]="recipe.cookingSteps"></app-steps>
+
+
+    </div>
+    <div class="d-flex flex-column justify-content-start align-items-stretch">
+      <div class="other my-3">Прочие рецепты</div>
+      <app-other-recipe-card class="align-items-start" *ngFor="let i of recipesService.fullRandomRecipes.slice(0,3)"
+                             [recipe]="recipesService.allRecipes[i]"></app-other-recipe-card>
+    </div>
+
+  </div>
+
+  <!--возможно понравятся рецепты-->
+  <app-may-be-like class="align-items-stretch my-3" [from]="recipesService.fullRandomRecipes.slice(4,8)"
+                   [recipes]="recipesService.allRecipes"></app-may-be-like>
+  <!--конец возможно понравятся рецепты-->
+
+  <div class="d-flex flex-column justify-content-start my-3">
+    <div class="htitle">Комментарии</div>
+    <app-comment-view [comments]="recipe.comments"></app-comment-view>
+
+  </div>
+  <div *ngIf="!this.userService.isAuthorized" class="my-3">Чтобы оставлять комментарии необходимо авторизоваться</div>
+  <div class="d-block position-relative my-3" *ngIf="this.userService.isAuthorized">
+    <label for="comment">Ваш комментарий</label>
+    <textarea [(ngModel)]="ourcomment" required #comment="ngModel" id="comment" name="comment" class="form-control"
+              rows="5"></textarea>
+    <button (click)="addComment(recipe.id, comment.value)" class="btn-lblue fit in-bottom-right"
+            [disabled]="comment.invalid"><img src="assets/img/mail.svg">&nbsp;Отправить
+    </button>
+  </div>
+
+</div>
+<router-outlet></router-outlet>

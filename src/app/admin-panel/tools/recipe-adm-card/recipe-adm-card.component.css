@@ -1,0 +1,30 @@
+.r-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.r-card-date {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color-o60);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.a-card {
+  text-decoration: none;
+  border-radius: 20px;
+}
+.a-card:hover {
+  background-color: var(--c-blue-color);
+}
+.img-card{
+  display: flex;
+  width: 280px;
+  height: 244px;
+  border-radius: 20px;
+  object-fit: cover;
+}

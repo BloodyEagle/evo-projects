@@ -1,0 +1,11 @@
+
+<a  routerLink="{{recipe.id}}" class="d-flex align-self-stretch a-card">
+  <div class="r-card m-3 align-self-stretch" style="width: 18rem;">
+    <img src="{{recipe.image}}" class="img-card" alt="Пример готового блюда">
+    <div class="r-card-body">
+      <div  class="r-card-title">{{ recipe.title }}</div>
+      <div  class="r-card-date">Создан {{ recipe.createdOn | date:"dd MMMM YYYY, HH:mm": '+3' }}</div>
+    </div>
+  </div>
+</a>
+

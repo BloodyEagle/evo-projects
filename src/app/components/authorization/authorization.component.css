@@ -1,0 +1,18 @@
+.text1 {
+  position: relative;
+  top: -29px;
+  background: #fff;
+  padding: 0 10px;
+  min-width: min-content;
+  padding: 0 0px;
+}
+
+.rf{
+  max-width: 640px;
+}
+label, a{
+  font-size: 14px;
+}
+a{
+  color: var(--c-purple-color);
+}

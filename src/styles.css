@@ -1,1 +1,224 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+:root{
+  --c-d-r: 0;
+  --c-d-g: 0;
+  --c-d-b: 0;
+  --c-dark-color: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 1) !important;
+  --c-dark-color-o60: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 0.6) !important;
+  --c-dark-color-o10: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 0.1) !important;
+  --c-dark-color-o6: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 0.06) !important;
+
+  --c-l-r: 255;
+  --c-l-g: 255;
+  --c-l-b: 255;
+  --c-light-color: rgb(var(--c-l-r), var(--c-l-g), var(--c-l-b), 1) !important;
+  --c-light-color-color-o60: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 0.6) !important;
+  --c-light-color-color-o10: rgb(var(--c-d-r), var(--c-d-g), var(--c-d-b), 0.1) !important;
+
+  --c-gray-light-color: #F2F2F2 !important;
+  --c-gray-color: #E5E7EB !important;
+  --c-blue-color: #E7FAFE !important;
+  --c-purple-color: #3A3395 !important;
+  --c-red-color: #DD0035 !important;
+  --c-red-light-color: #FEE2E2 !important;
+}
+.text-dark {
+  color: var(--c-dark-color) !important;
+}
+.text-dark-o60 {
+  color: var(--c-dark-color-o60) !important;
+}
+.text-dark-o10 {
+  color: var(--c-dark-color-o10) !important;
+}
+.text-light {
+  color: var(--c-light-color) !important;
+}
+.text-light-o60 {
+  color: var(--c-light-color-color-o60) !important;
+}
+.text-light-o10 {
+  color: var(--c-light-color-color-o10) !important;
+}
+
+.inter-italic {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 400;
+          font-style: italic;
+          font-variation-settings:
+            "slnt" 0;
+        }
+.inter-thin {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 100;
+          font-style: normal;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-thin-italic {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 100;
+          font-style: italic;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-regular {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 400;
+          font-style: normal;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-regular-italic {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 400;
+          font-style: italic;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-medium {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: normal;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-medium-italic {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: italic;
+          font-variation-settings:
+            "slnt" 0;
+        }
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-bold-italic {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: italic;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+body {
+  font-family: "Inter", sans-serif !important;
+}
+a {
+    color: var(--bs-primary);
+    text-decoration: none;
+}
+.text-14 {
+  font-size: 14px !important;
+}
+.text-16 {
+  font-size: 16px !important;
+}
+.text-18 {
+  font-size: 18px !important;
+}
+.text-24 {
+  font-size: 24px !important;
+}
+.btn-purple{
+  /*display: block;*/
+  background-color: var(--c-purple-color);
+  color: var(--c-light-color);
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.btn-purple:hover{
+  filter: brightness(120%);;
+}
+.btn-purple:disabled{
+  filter: grayscale(70%);
+  cursor: not-allowed;
+}
+.btn-lblue{
+  background-color: #EEF2FF;
+  color: var(--c-purple-color);
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.btn-lblue:hover{
+  filter: hue-rotate(50deg);
+}
+.btn-lblue:disabled{
+  filter: grayscale(70%);
+  cursor: not-allowed;
+}
+
+.btn-red{
+  background-color: var(--c-red-color);
+  color: var(--c-light-color);
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.btn-red:hover{
+  filter: brightness(120%);;
+}
+.fit{
+    width: fit-content;
+}
+.in-bottom-right{
+  position: absolute;
+  bottom: 9px;
+  right: 25px
+}
+.rounded-30{
+  border-radius: 30px !important;
+}
+.rounded-end-30{
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+}
+.bg-blue{
+  background-color: var(--c-blue-color);
+}

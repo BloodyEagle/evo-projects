@@ -1,0 +1,31 @@
+<div class="d-flex flex-row justify-content-between align-items-stretch  w-100 bg-blue rounded-30 slide">
+  <div class="d-flex flex-column w-50 text py-2">
+    <div class="title">{{recipe.title}}</div>
+    <div class="body">{{recipe.body | slice:0:150}}...</div>
+
+    <div class="d-flex flex-row justify-content-start gap-2 mb-5">
+      <div class="gray-button">
+        <app-cooking-time [timeCooking]="recipe.timeCooking"></app-cooking-time>
+      </div>
+      <div class="gray-button">
+        <app-tags [tags]="recipe.tags"></app-tags>
+      </div>
+    </div>
+    <div class="d-flex flex-row justify-content-between gap-2">
+      <div class="author">
+        <app-author
+          [avatar]="recipe.author.avatar"
+          [title]="recipe.author.firstName+' '+recipe.author.lastName"
+          [text]="recipe.createdOn"
+          [isDate]="true"></app-author>
+      </div>
+      <div><a routerLink="recipes/{{recipe.id}}" class="btn-purple py-3 rounded-4">Посмотреть <img src="assets/img/play.svg"></a></div>
+      <div class="w-25"></div>
+    </div>
+
+  </div>
+
+  <div class="d-flex flex-column w-50 align-items-end">
+    <img src="{{recipe.image}}" alt="first slide" class="rounded-end-30 img-fluid img">
+  </div>
+</div>

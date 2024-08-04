@@ -1,0 +1,28 @@
+.a-block{
+  display: flex;
+  flex-direction: column;
+
+}
+.items{
+  display: flex;
+  flex-direction: row;
+}
+.header {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.menu-item{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding-bottom: 1em;
+  margin-right: 1em;
+  color: var(--c-dark-color-o60);
+}
+.menu-item.active{
+  color: var(--c-purple-color) !important;
+  border-bottom: var(--c-purple-color) solid 2px;
+}

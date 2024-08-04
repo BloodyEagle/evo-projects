@@ -1,0 +1,12 @@
+.title{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color-o60);
+}
+.param{
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36px;
+  color: var(--c-dark-color);
+}

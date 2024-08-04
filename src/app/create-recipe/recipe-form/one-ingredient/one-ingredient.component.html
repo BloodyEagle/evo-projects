@@ -1,0 +1,32 @@
+<div class="step">
+  <div class="bkb">
+    <div class="left"></div>
+    <div class="bookmark">Ингредиент {{ counter + 1 }}</div>
+    <div class="right"></div>
+  </div>
+  <div class="mb-3 row d-flex w-100 py-3 sh up">
+    <label for="{{fieldNameTitle+counter}}" class="col-sm-4 col-form-label ttl">Название ингредиента</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="{{fieldNameTitle+counter}}" name="{{fieldNameTitle}}"
+             [(ngModel)]="model.title"
+             value="{{valueTitle}}" required>
+    </div>
+  </div>
+
+  <div class="row d-flex w-100 py-3 sh up">
+    <label for="{{fieldNameDescription+counter}}" class="col-sm-4 col-form-label ttl">Описание</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" [(ngModel)]="model.description"
+             id="{{fieldNameDescription+counter}}"
+             name="{{fieldNameDescription}}"
+             value="{{valueDescription}}"
+             required>
+    </div>
+  </div>
+  <input type="hidden" name="error" [(ngModel)]="error.invalid[counter]">
+  <div *ngIf="error.invalid[counter]" class="d-flex flex-row justify-content-center">
+    <div class="error text-light bg-danger p-2 rounded-2 err">
+      Все поля должны быть заполнены!
+    </div>
+  </div>
+</div>

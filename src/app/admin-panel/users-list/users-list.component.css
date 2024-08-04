@@ -1,0 +1,54 @@
+app-author{
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: fit-content;
+}
+.active{
+  color: #065F46;
+  background-color: lightgreen;
+  border-radius: 10px;
+  padding: 1px 10px;
+}
+.table{
+  display: table;
+  width: 100%;
+  border: var(--c-gray-color) solid 1px;
+  border-radius: 10px;
+}
+.head{
+  background-color: var(--c-dark-color-o10);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.th {
+  display: table-cell;
+  padding: 5px;
+}
+
+.row{
+  display: table-row;
+}
+.cell{
+  display: table-cell;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border-top: var(--c-dark-color-o10) solid 1px;
+}
+.table > .row:nth-child(1) {
+  background-color: var(--c-gray-light-color);
+}
+.table > .row:nth-child(1) > .cell {
+  border-top: none;
+}
+.t-user{
+  width: 60%;
+}
+.t-status{
+  width: 15%;
+}
+.t-role{
+  width: 15%;
+}
+.t-contols{
+  width: 10%;
+}

@@ -1,0 +1,4 @@
+.sh{
+  /*border: var(--c-dark-color-o10) solid 1px;*/
+  box-shadow: 0px 1px 2px 0px var(--c-dark-color-o6), 0px 1px 3px 0px var(--c-dark-color-o10);
+}

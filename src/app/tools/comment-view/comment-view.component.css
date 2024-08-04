@@ -1,0 +1,25 @@
+.htitle{
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 43.57px;
+  letter-spacing: -0.04em;
+}
+.title{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color)}
+.text{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  opacity: 60%;
+}
+.comment{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+}
+img{
+  margin-right: 0.5em;
+}

@@ -1,0 +1,52 @@
+<div class="container was-validated w-100 m-auto rf">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1 class="h1 fw-bold text-center">Войдите в ваш аккаунт</h1>
+      <form>
+
+        <label for="username">Логин</label>
+        <input [(ngModel)]="user.username" id="username" name="username" type="text" class="form-control mb-2"
+               placeholder="Введите логин"
+               #usernameInput="ngModel" required>
+
+        <label for="password">Пароль</label>
+        <input [(ngModel)]="user.password"
+               id="password" name="password" type="password" class="form-control  mb-2"
+               placeholder="Введите пароль"
+               #passwordInput="ngModel" required minlength="4">
+
+        <div class="d-flex flex-row justify-content-between mb-2">
+          <div>
+            <input [(ngModel)]="fastJwt"
+                   id="fastSession" name="fastSession" type="checkbox" class=""
+                   #fastSession="ngModel" value="false" (change)="console.log('fastSession', fastSession.value)">
+            <label for="fastSession">&nbsp;Быстрая сессия</label>
+          </div>
+          <a routerLink="/registration">Зарегистрироваться</a>
+        </div>
+        <button type="submit" class="btn-purple mt-3 w-100 mb-2"
+                [disabled]="passwordInput.invalid || usernameInput.invalid"
+                (click)="loginUser(user, fastSession.value)">Вход
+        </button>
+
+      </form>
+      <div class="d-flex flex-row align-content-between">
+        <div class="justify-content-center w-100 text-center">
+          <hr/>
+          <div class="px-5">
+            <div class="text1">Или войти с помощью</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center w-100 mb-5">
+        <div class="text-center border border-1 rounded-3 border-secondary w-100">
+          <img src="assets/img/github.svg">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

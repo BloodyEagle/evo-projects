@@ -1,0 +1,27 @@
+.r-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.04em;
+  color: var(--c-dark-color);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+.a-card {
+  text-decoration: none;
+  border-radius: 20px;
+}
+.a-card:hover {
+  background-color: var(--c-blue-color);
+}
+.img-card{
+  display: flex;
+  width: 290px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.fit {
+  display: block;
+  position: absolute;
+}

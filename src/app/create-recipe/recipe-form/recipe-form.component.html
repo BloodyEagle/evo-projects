@@ -1,0 +1,144 @@
+<div class="grid text-start was-validated">
+  <h1 class="mh1">{{ editMode ? 'Редактирование рецепта' : 'Создание рецепта'}}</h1>
+  <form class="row g-3"><!-- #recipeForm [formGroup]="recipeForm" (ngSubmit)="onSubmit()">-->
+
+    <div class="col-md-12">
+      <div class="py-3 mh2 sh">Основная информация</div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="titleRecipe" class="col-sm-4 col-form-label ttl">Название рецепта</label>
+        <div class="col-sm-6">
+          <input [(ngModel)]="new_recipe.title" #titleRecipe="ngModel" type="text"
+                 class="form-control" id="titleRecipe" name="titleRecipe" required>
+<!--
+          <div  class="form-text text-danger">
+            Поле не может быть пустым
+          </div>
+-->
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="titleRecipe" class="col-sm-4 col-form-label ttl">Краткое описание</label>
+        <div class="col-sm-6">
+          <textarea [(ngModel)]="new_recipe.body" #bodyRecipe="ngModel" name="bodyRecipe"
+                    class="form-control" id="bodyRecipe" required></textarea>
+          <div id="bodyHelpBlock" class="form-text text-dark-o60">
+            Опишите о чем ваш рецепт
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="cover" class="col-sm-4 col-form-label ttl">Картинка рецепта</label>
+        <div class="col-sm-6">
+          <input [(ngModel)]="new_recipe.image" #cover="ngModel" type="text" class="form-control"
+                 id="cover" name="cover" required value="{{new_recipe.image}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="py-3 mh2 sh">Дополнительная информация</div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="tagsRecipe" class="col-sm-4 col-form-label ttl">Категория</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.tags[0]" #tagsRecipe="ngModel"
+                 type="text" class="form-control" id="tagsRecipe" name="tagsRecipe" required>
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="timeRecipe" class="col-sm-4 col-form-label ttl">Время приготовления (минут)</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.timeCooking" #timeRecipe="ngModel" type="text" class="form-control"
+                 id="timeRecipe" name="timeRecipe" required pattern="[0-9\.]*">
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="proteins" class="col-sm-4 col-form-label ttl">Белки</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.foodValue.proteins" #proteins="ngModel" type="text" class="form-control"
+                 id="proteins" name="proteins" required pattern="[0-9\.]*">
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="fats" class="col-sm-4 col-form-label ttl">Жиры</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.foodValue.fats" #fats="ngModel" type="text" class="form-control"
+                 id="fats" name="fats" required pattern="[0-9\.]*">
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="carbohydrates" class="col-sm-4 col-form-label ttl">Углеводы</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.foodValue.carbohydrates" #carbohydrates="ngModel" type="text"
+                 class="form-control" id="carbohydrates" name="carbohydrates" required pattern="[0-9\.]*">
+        </div>
+      </div>
+
+      <div class="mb-3 row d-flex w-100 py-3 sh">
+        <label for="calories" class="col-sm-4 col-form-label ttl">Калории</label>
+        <div class="col-sm-3">
+          <input [(ngModel)]="new_recipe.foodValue.calories" #calories="ngModel" type="text" class="form-control"
+                 id="calories" name="calories" required pattern="[0-9\.]*">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="py-3 mh2 sh">Детальная информация
+        <div id="bodyHelpBlock" class="form-text text-dark-o60 sm">
+          Детально опишите каждый шаг вашего рецепта
+        </div>
+      </div>
+
+
+      <app-one-step
+        *ngFor="let step of new_recipe.cookingSteps; index as i"
+        [counter]="i"
+        [fieldNameTitle]="'stepTitle[]'"
+        [fieldNameDescription]="'stepDescription[]'"
+        [model]="new_recipe.cookingSteps[i]"
+        [error]="hasInvalidStep"
+      ></app-one-step>
+      <button (click)="new_recipe.cookingSteps.push({title: '', description: ''}); hasInvalidStep.invalid.push(false)"
+              class="btn-purple my-3">Добавить шаг</button>
+    </div>
+
+    <div class="col-md-12">
+      <div class="py-3 mh2 sh">Ингредиенты</div>
+
+      <app-one-ingredient
+        *ngFor="let step of new_recipe.ingredients; index as i"
+        [counter]="i"
+        [fieldNameTitle]="'stepTitle[]'"
+        [fieldNameDescription]="'stepDescription[]'"
+        [model]="new_recipe.ingredients[i]"
+        [error]="hasInvalidIng"
+      ></app-one-ingredient>
+      <button (click)="new_recipe.ingredients.push({title: '', description: ''}); hasInvalidIng.invalid.push(false)"
+              class="btn-purple my-3">Добавить инредиент</button>
+    </div>
+
+    <div class="d-grid mb-3">
+    <div class="row">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-4">
+        <button
+          (click)="onSubmit();console.log(this.new_recipe);"
+          type="submit" class="btn-purple col-md-5"
+          [disabled]="titleRecipe.invalid || bodyRecipe.invalid || cover.invalid || tagsRecipe.invalid
+          || timeRecipe.invalid || proteins.invalid || fats.invalid || carbohydrates.invalid
+          || calories.invalid"><img src="assets/img/mail.svg">
+            {{editMode ? 'Сохранить рецепт' : 'Отправить рецепт'}}
+        </button>
+      </div>
+    </div>
+    </div>
+  </form>
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "evo-projects": {
+    "Foodie": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/evo-projects",
+            "outputPath": "dist/foodie",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,7 +25,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -60,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "evo-projects:build:production"
+              "browserTarget": "Foodie:build:production"
             },
             "development": {
-              "browserTarget": "evo-projects:build:development"
+              "browserTarget": "Foodie:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "evo-projects:build"
+            "browserTarget": "Foodie:build"
           }
         },
         "test": {
@@ -96,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "9887f90e-7333-4d76-b401-df759e6bf7da"
+    "analytics": "423e6b86-d284-417d-9a4d-06bc00708fb2"
   }
 }

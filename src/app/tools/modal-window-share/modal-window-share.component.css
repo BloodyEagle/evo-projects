@@ -1,0 +1,14 @@
+.mwrow{
+  display: flex;
+  flex-direction: row;
+}
+.i{
+  width: 10%;
+}
+.t{
+  width: 100%;
+  text-align: center;
+}
+.img-modal{
+  cursor: pointer;
+}

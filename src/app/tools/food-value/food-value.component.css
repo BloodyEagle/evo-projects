@@ -1,0 +1,32 @@
+.calories{
+  background-color: var(--c-blue-color);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: var(--c-dark-color);
+  width: 25em !important;
+}
+.c-title{
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  text-align: left;
+}
+.cal-list-item{
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 21.78px;
+  text-align: left;
+  border-bottom: 1px solid var(--c-dark-color-o10);
+  height: 38px;
+}
+.cal-list-item>div:nth-child(1){
+  opacity: 60%;
+}
+.rounded-30{
+  border-radius: 30px !important;
+}

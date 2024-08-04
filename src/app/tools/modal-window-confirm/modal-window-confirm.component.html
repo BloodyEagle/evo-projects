@@ -1,0 +1,14 @@
+<span *ngIf="type == 'text'" (click)="openModal(template)">{{ title }}</span>
+<img *ngIf="type == 'img'" (click)="openModal(template)" src="{{ title }}" class="img-modal">
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <div *ngIf="img !== ''" class="mwrow">
+      <div class="i"><img src="{{img}}"></div>
+      <div class="t">{{ message }}</div>
+    </div>
+    <p *ngIf="img === ''">{{ message }}</p>
+    <a  class="btn-lblue mx-2" (click)="callConfirm()">{{ buttons.confirmMsg }}</a>
+    <a  class="btn-purple mx-2" (click)="callDecline()">{{ buttons.declineMsg }}</a>
+  </div>
+</ng-template>

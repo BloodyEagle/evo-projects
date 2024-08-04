@@ -1,0 +1,17 @@
+<div class="flex-column w-100 rounded-3 pt-2 ptable">
+  <table class="table table-hover">
+    <thead>
+    <tr class="trow">
+      <th scope="col" class="w-25">Информация аккаунта</th>
+      <th scope="col" class="w-75"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let param of params" class="trow">
+      <td class="param">{{ param.name }}</td>
+      <td *ngIf="param.value.slice(0,3) !== '/d/'" class="value">{{ param.value }}</td>
+      <td *ngIf="param.value.slice(0,3) == '/d/'" class="value">{{ param.value.slice(3) | date:"dd MMMM YYYY": '+3' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

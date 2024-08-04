@@ -1,0 +1,19 @@
+#basic-link{
+  text-decoration: none;
+}
+.spacer{
+  width: 1em;
+}
+.menu {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  inset: auto !important;
+}
+.menu>li{
+  border-bottom: var(--c-dark-color-o10) solid 1px;
+  cursor: pointer;
+}
+.menu>li:last-child{
+  border-bottom: none;
+}

@@ -1,0 +1,9 @@
+<app-button-icon-text [img]="'assets/img/share.svg'" [title]="'Поделиться'" (click)="openModal(template)"></app-button-icon-text>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <div class="share-icons" (click)="callDecline()">
+      <ng-content></ng-content>
+    </div>
+    <a class="btn-purple mx-2" (click)="callDecline()">{{ buttons.declineMsg }}</a>
+  </div>
+</ng-template>

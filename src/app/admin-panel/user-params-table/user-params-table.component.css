@@ -1,0 +1,28 @@
+.param{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color-o60);
+  padding: 1.5em 1em 1em 1em;
+}
+.value{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #111827;
+  padding: 1.5em 1em 1em 1em;
+}
+tbody > .trow{
+  height: 60px;
+  border-bottom: var(--c-dark-color-o10) solid 1px;
+}
+tbody > .trow:last-child{
+  height: 50px;
+  border-bottom: rgba(0,0,0,0);
+}
+table{
+
+}
+.ptable{
+  box-shadow: 0px 1px 2px 0px var(--c-dark-color-o6), 0px 1px 3px 0px var(--c-dark-color-o10);
+}

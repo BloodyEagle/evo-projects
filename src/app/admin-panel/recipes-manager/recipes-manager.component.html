@@ -1,0 +1,23 @@
+<div class="table">
+  <div class="row head">
+    <div class="cell title">Название рецепта</div>
+    <div class="cell desc">Краткое описание</div>
+    <div class="cell id">ID рецепта</div>
+    <div class="cell category">Категория</div>
+    <div class="cell controls">Категория</div>
+  </div>
+  <div class="row" *ngFor="let recipe of recipes">
+    <div class="cell title">{{recipe.title}}</div>
+    <div class="cell desc">{{recipe.body | slice:0:100}}...</div>
+    <div class="cell id">{{recipe.id}}</div>
+    <div class="cell category">{{recipe.tags}}</div>
+    <div class="cell contols"><a routerLink="{{recipe.id}}"><img src="assets/img/edit.svg"></a>&nbsp;
+      <app-modal-window-confirm
+        [title]="'assets/img/trash.svg'"
+        [img]="'assets/img/warning.svg'"
+        [type]="'img'"
+        [message]="'Эту операцию нельзя будет отменить!\n Удалить?'"
+        (onConfirm)="$event && deleteRecipe(recipe.id)"></app-modal-window-confirm>
+    </div>
+  </div>
+</div>

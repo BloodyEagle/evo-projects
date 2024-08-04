@@ -1,0 +1,26 @@
+.title{
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--c-dark-color) !important;
+}
+.text{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--c-dark-color-o60);
+}
+.role{
+  padding: 2px 8px 2px 8px;
+  gap: 6px;
+  border-radius: 4px;
+  color: #1E40AF;
+  background-color: #DBEAFE;
+}
+.role::before {
+  content: "● ";
+}
+
+img{
+  margin-right: 0.5em;
+}

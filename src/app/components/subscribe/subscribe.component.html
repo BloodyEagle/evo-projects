@@ -1,0 +1,14 @@
+<div class="bg-blue rounded-30 p-5 d-flex flex-row">
+  <div class="d-flex flex-column">
+    <h2>Хотите получать новые рецепты</h2>
+    <div>Не пропустите ни одного вкусного рецепта! Подпишитесь на нашу рассылку, чтобы получать новые кулинарные
+      идеи и рецепты прямо в свою почту.
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center">
+    <div class="d-flex flex-row">
+      <input #email="ngModel" ngModel email type="email" id="email" name="email" class="rounded-3 border-0" placeholder="Введите ваш email..." required>
+      <button class="btn-purple mx-2" [disabled]="email.invalid" (click)="suscribeSuccess()">Подписаться</button>
+    </div>
+  </div>
+</div>
