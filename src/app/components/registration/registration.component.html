@@ -17,17 +17,17 @@
         <label for="firstname">Имя</label>
         <input [(ngModel)]="new_user.firstName" id="firstname" name="firstname" type="text" class="form-control"
                placeholder="Введите своё имя"
-               #firstnameInput="ngModel">
+               #firstnameInput="ngModel" required>
 
         <label for="lastname">Фамилия</label>
         <input [(ngModel)]="new_user.lastName" id="lastname" name="lastname" type="text" class="form-control"
                placeholder="Введите фамилию"
-               #lastnameInput="ngModel">
+               #lastnameInput="ngModel" required>
 
         <label for="middlename">Отчество</label>
         <input [(ngModel)]="new_user.middleName" id="middlename" name="middlename" type="text" class="form-control"
                placeholder="Введите отчество (при наличии)"
-               #middlenameInput="ngModel">
+               #middlenameInput="ngModel" required>
         <button type="submit" class="btn-purple mt-3 w-100 mb-2"
                 [disabled]="passwordInput.invalid || usernameInput.invalid"
                 (click)="registerUser(new_user)">Зарегистрироваться
