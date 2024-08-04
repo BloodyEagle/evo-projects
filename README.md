@@ -1,27 +1,18 @@
 # Foodie
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
 
-## Development server
+Выпускная работа по курсу Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Краткая справка
+Реализованы все пункты ТЗ, кроме адаптивности.
 
-## Code scaffolding
+Причиной послужило то, что изначально был импортирован Bootstrap CSS, 
+но, как оказалось, дизайн из ТЗ на него ложится не очень - много воздуха вокруг блоков. 
+Так что либо нужно было городить кучу вложенных блоков, либо выкинуть его нафиг.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Примерно в середине работы все же было принято решение избавится от Bootstrap, 
+но он уже так глубоко пустил корни, что легче было начать заново, что не позвзляло время...
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+В итоге попытка избавится провалилась, а в стилях наступил полный хаос. 
+К сожалению времени исправить уже нет... 
+Хотя, на досуге попробую все же переписать все стили начисто и избавится от монстра.
