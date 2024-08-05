@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, AfterViewChecked, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RecipesService} from "../../services/recipes.service";
 import {GetOnePost} from "../../interfaces/recipes/get-one-post";
 import {ToastrService} from 'ngx-toastr';
@@ -9,16 +9,16 @@ import {Subscription} from "rxjs";
 import {ButtonIconTextComponent} from "../../tools/button-icon-text/button-icon-text.component";
 import {FavoritesService} from "../../services/favorites.service";
 
+
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit, OnDestroy {
+export class RecipeDetailComponent implements OnInit {
   public recipe!: GetOnePost;
   public ourcomment: string = '';
   public shareButton = new ButtonIconTextComponent();
-  @ViewChild('top') element?: ElementRef<HTMLHeadingElement>;
   protected readonly Component = Component;
   private id: string = '';
   private sub!: Subscription;
@@ -55,7 +55,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.activatedRoute.data.subscribe({
       next: ({recipe}) => {
         this.recipe = recipe;
-        this.element?.nativeElement.scrollIntoView({behavior: 'smooth'});
+        //this.element?.nativeElement.scrollIntoView({behavior: 'smooth'});
         this.title.setTitle(this.recipe.title)
         this.meta.addTags([{name: 'og:type', content: 'website'},
           {name: 'og:title', content: this.recipe.title},
@@ -82,11 +82,4 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.recipesService.fillAllRandom();
   }
 
-  ngOnDestroy() {
-
-  }
-
-  ngAfterViewChecked() {
-    this.element?.nativeElement.scrollIntoView({behavior: 'smooth'});
-  }
 }

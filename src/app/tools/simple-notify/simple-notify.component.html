@@ -1,0 +1,6 @@
+<span (click)="addComponent()"><ng-content></ng-content></span>
+<ng-template #notify >
+  <app-notify-window [icon]="icon"
+                     [title]="title"
+                     [text]="text"></app-notify-window>
+</ng-template>

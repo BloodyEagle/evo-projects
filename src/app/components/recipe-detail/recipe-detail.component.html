@@ -1,6 +1,6 @@
 <div class="d-flex flex-column justify-content-start">
 
-  <div class="d-flex flex-row justify-content-between 1">
+  <div class="d-flex flex-column flex-lg-row justify-content-between 1">
     <div class="d-flex flex-column justify-content-between button-block p-2 mb-4">
       <h1 class="title" #top>{{ recipe.title }}</h1>
       <div class="d-flex flex-row flex-nowrap justify-content-center align-items-stretch icon-info">
@@ -15,10 +15,13 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-start button-block p-2 but">
-      <app-button-icon-text
-        [check]="favoritesService.getRecipeFav(recipe.id)" [checkImg]="'assets/img/starF.svg'"
-        [img]="'assets/img/star.svg'" [title]="'В&nbsp;избранное'"
-        (checkChange)="favoritesService.intoFavorites(recipe.id)"></app-button-icon-text>
+      <app-simple-notify  [title]="favoritesService.getRecipeFav(recipe.id) ? 'Добавлено в избранное' : 'Удалено из избранного'"
+                          [text]="favoritesService.getRecipeFav(recipe.id) ? 'Сохранили этот рецепт для вас' : 'Удалили этот рецепт из избранного'">
+        <app-button-icon-text
+          [check]="favoritesService.getRecipeFav(recipe.id)" [checkImg]="'assets/img/starF.svg'"
+          [img]="'assets/img/star.svg'" [title]="'В&nbsp;избранное'"
+          (checkChange)="favoritesService.intoFavorites(recipe.id)"></app-button-icon-text>
+      </app-simple-notify>
       <app-button-icon-text [img]="'assets/img/print.svg'" [title]="'Распечатать'"
                             onClick="window.print()"></app-button-icon-text>
       <app-modal-window-share [title]="shareButton">
@@ -31,7 +34,7 @@
     </div>
   </div>
 
-  <div class="d-flex flex-sm-column flex-md-column flex-lg-row  justify-content-between gap-4">
+  <div class="d-flex flex-column  flex-lg-row  justify-content-between gap-4">
     <div class="d-sm-flex flex-sm-fill">
       <img src="{{recipe.image}}" class="img-fluid rounded-30 w-100 mainimg" alt="{{recipe.title}}">
     </div>
@@ -41,8 +44,8 @@
 
   <div class="body my-4">{{ recipe.body }}</div>
 
-  <div class="d-flex flex-row justify-content-between align-items-start">
-    <div class="d-flex flex-column w-50 p-3 justify-content-start align-items-stretch">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start">
+    <div class="d-flex flex-column p-3 justify-content-start align-items-stretch">
 
       <app-ingredients [ingredients]="recipe.ingredients"></app-ingredients>
       <app-steps [steps]="recipe.cookingSteps"></app-steps>

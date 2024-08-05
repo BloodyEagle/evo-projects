@@ -68,7 +68,7 @@ export class RecipesService {
   fillAllRandom(): void {
     this.fullRandomRecipes.length = 0;
     let i: number = 0;
-    let recipesCount = this.allRecipes.length - 1;
+    let recipesCount = this.allRecipes.length;
     for (i = 0; i < recipesCount; i++) {
       this.fullRandomRecipes.push(i);
     }

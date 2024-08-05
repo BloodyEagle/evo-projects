@@ -16,6 +16,9 @@ import {RouterModule} from "@angular/router";
 import {ModalWindowConfirmComponent} from "./modal-window-confirm/modal-window-confirm.component";
 import {ModalWindowShareComponent} from './modal-window-share/modal-window-share.component';
 import {LikeComponent} from './like/like.component';
+import { SimpleNotifyComponent } from './simple-notify/simple-notify.component';
+import { NotifyWindowComponent } from './simple-notify/notify-window/notify-window.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import {LikeComponent} from './like/like.component';
     ModalWindowConfirmComponent,
     ModalWindowShareComponent,
     LikeComponent,
+    SimpleNotifyComponent,
+    NotifyWindowComponent,
   ],
   exports: [
     AuthorComponent,
@@ -50,6 +55,7 @@ import {LikeComponent} from './like/like.component';
     OtherRecipeCardComponent,
     ModalWindowConfirmComponent,
     ModalWindowShareComponent,
+    SimpleNotifyComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,36 @@
+.win{
+  background-color: var(--c-light-color);
+  right: 50px;
+  top: 50px;
+  width: fit-content;
+  transform: translateY(150%);
+  animation: ani 1s forwards;
+  box-shadow: var(--c-dark-color-o10) 0 1px 2px 0px;
+}
+@keyframes ani {
+  0% {transform: translateY(150%);}
+  100% {transform: translateY(0);}
+}
+.notify-close{
+  opacity:0;
+  visibility: hidden;
+  transition: all .2s linear;
+}
+.close{
+  display: block;
+  vertical-align: top;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  margin: 10px;
+}
+.title{
+  color: var(--c-dark-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+.text{
+    color: var(--c-dark-color-o60);
+    font-size: 14px;
+    font-weight: 400;
+}

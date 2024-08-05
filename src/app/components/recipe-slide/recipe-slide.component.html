@@ -1,5 +1,5 @@
-<div class="d-flex flex-row justify-content-between align-items-stretch  w-100 bg-blue rounded-30 slide">
-  <div class="d-flex flex-column w-50 text py-2">
+<div class="d-flex flex-column-reverse flex-md-row justify-content-between align-items-stretch  w-100 bg-blue rounded-30 slide">
+  <div class="d-flex flex-column text py-2 img-slide">
     <div class="title">{{ recipe.title }}</div>
     <div class="body">{{ recipe.body | slice:0:150 }}...</div>
 
@@ -26,7 +26,7 @@
 
   </div>
 
-  <div class="d-flex flex-column w-50 align-items-end">
-    <img src="{{recipe.image}}" alt="first slide" class="rounded-end-30 img-fluid img">
+  <div class="d-flex flex-column  align-items-end img-slide">
+    <img src="{{recipe.image}}" alt="first slide" class="rounded-end-30 img">
   </div>
 </div>

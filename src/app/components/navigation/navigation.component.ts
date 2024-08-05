@@ -31,4 +31,6 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  collapsed: boolean = true;
 }

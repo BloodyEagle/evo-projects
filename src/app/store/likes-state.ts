@@ -22,8 +22,10 @@ export class LikesState {
     let state = ctx.getState();
     if (state.find(like => like === action.id)) {
       state = state.filter(like => like !== action.id);
+      ctx.setState(state);
+    } else {
+      ctx.setState([...state, action.id]);
     }
-    ctx.setState([...state, action.id]);
   }
 
 }

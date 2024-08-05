@@ -8,6 +8,7 @@ import {ViewOneUserComponent} from "./view-one-user/view-one-user.component";
 import {EditRecipeComponent} from "./edit-recipe/edit-recipe.component";
 import {recipesResolver} from "../services/recipes.resolver";
 import {oneRecipeResolver} from "../services/one-recipe.resolver";
+import {oneUserResolver} from "../services/one-user.resolver";
 
 const routes: Routes = [
   {
@@ -27,7 +28,10 @@ const routes: Routes = [
       },
       {
         path: 'users/:id',
-        component: ViewOneUserComponent
+        component: ViewOneUserComponent,
+        resolve: {
+          user: oneUserResolver
+        }
       },
       {
         path: 'recipes',

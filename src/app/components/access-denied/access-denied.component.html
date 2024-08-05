@@ -1,14 +1,18 @@
 <div class="lightbox">
-  <div class="flex">
-    <div class="center">
-      <div class="w-50">
+  <div class="flex align-items-stretch">
+    <div class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-lg-start">
+      <div class="d-flex flex-column justify-content-center align-items-stretch h-100 text">
         <div class="number">401 ОШИБКА</div>
         <div class="title">Доступ запрещен</div>
         <div class="message">У вас нет прав на просмотр этого раздела</div>
         <a href="" (click)="goBack()">Назад →</a>
         <a routerLink="">На главную →</a>
       </div>
-      <div class="w-50"><img src="https://evo-academy.wckz.dev/assets/image/image_404.png" alt="404"></div>
+
+      <div class="d-flex img-fluid flex-column justify-content-center align-items-center h-100">
+        <img src="https://evo-academy.wckz.dev/assets/image/image_404.png" alt="404" class="">
+      </div>
+
     </div>
   </div>
 </div>

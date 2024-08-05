@@ -38,6 +38,7 @@ import {AuthState} from "./store/auth-state";
 import {LikesState} from "./store/likes-state";
 import {FavoritesState} from "./store/favorites-state";
 
+
 registerLocaleData(localeRu, 'ru');
 
 
@@ -70,6 +71,7 @@ registerLocaleData(localeRu, 'ru');
     NgxsModule.forRoot([AuthState, LikesState, FavoritesState], {developmentMode: true}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
+
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru'},

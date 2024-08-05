@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import 'ngx-toastr/toastr';
 
 :root {
@@ -147,7 +148,7 @@ a {
 
 .btn-purple {
   background-color: var(--c-purple-color);
-  color: var(--c-light-color);
+  color: var(--c-light-color) !important;
   border-radius: 5px;
   padding: 0.5em 1em;
   width: fit-content;
@@ -195,9 +196,9 @@ a {
   cursor: not-allowed;
 }
 
-.btn-red {
-  background-color: var(--c-red-color);
-  color: var(--c-light-color);
+.btn-white {
+  background-color: var(--c-light-color);
+  color: var(--c-dark-color-o60);
   border-radius: 5px;
   padding: 0.5em 1em;
   width: fit-content;
@@ -208,12 +209,14 @@ a {
   line-height: 20px;
   text-align: center;
   cursor: pointer;
-  border: none;
+  border: var(--c-dark-color-o60) solid 1px;
+}
+.btn-white:hover {
+  box-shadow: var(--c-dark-color-o10) 1px 1px 1px 1px;
+  color: var(--c-dark-color);
 }
 
-.btn-red:hover {
-  filter: brightness(120%);;
-}
+
 
 .fit {
   width: fit-content;
@@ -232,6 +235,13 @@ a {
 .rounded-end-30 {
   border-top-right-radius: 30px !important;
   border-bottom-right-radius: 30px !important;
+}
+@media (max-width: 768px) {
+    .rounded-end-30 {
+        border-top-right-radius: 30px !important;
+        border-top-left-radius: 30px !important;
+        border-bottom-right-radius: 0 !important;
+    }
 }
 
 .bg-blue {

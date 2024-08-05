@@ -7,9 +7,16 @@
 .button-block{
   height: 8em;
 }
-
 .but{
-  width: 20em !important;
+    margin-top: 70px;
+}
+@media screen and (max-width: 768px) {
+    .but {
+        margin-top: 0;
+    }
+}
+.but > *{
+  margin-left: 2em;
 }
 .mainimg{
   margin-right: 1em;

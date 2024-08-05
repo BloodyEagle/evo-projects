@@ -11,8 +11,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 .center{
   height: min-content;
@@ -35,7 +35,16 @@
   line-height: 48px;
   letter-spacing: -0.025em;
   color: var(--c-dark-color);
-  margin: 0.5em 0em;
+  margin: 0.5em 0;
+}
+.text{
+  min-height: fit-content;
+}
+@media  (max-width: 576px) {
+  .text{
+    font-size: 16px;
+    width: min-content;
+  }
 }
 .message{
   font-size: 16px;
@@ -51,6 +60,10 @@ a{
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  padding: 2em 0em 0em 0em;
+  padding: 2em 0 0 0;
 
+}
+img {
+  object-fit: cover;
+  width: 500px;
 }

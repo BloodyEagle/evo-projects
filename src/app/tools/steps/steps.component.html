@@ -1,8 +1,8 @@
 <div class="d-flex flex-column">
   <h2 class="step-title">Шаги приготовления</h2>
-  <div class="d-flex flex-column step" *ngFor="let step of steps; index as i">
+  <div class="d-flex flex-column py-3 step" *ngFor="let step of steps; index as i">
     <div class="d-flex flex-row justify-content-start align-items-start">
-      <app-checkbox [index]="i" [checked]="false"
+      <app-checkbox [index]="i" [checked]="stepsChecked[i]"
                     (checkedChange)="stepsChecked[i] = !stepsChecked[i]"></app-checkbox>
       <span class="step-subtitle" [ngClass]="{'checked': stepsChecked[i]}">{{ step.title }}</span>
     </div>

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -9,20 +9,20 @@ import {OmitTypeClass} from "../../interfaces/users/omit-type-class";
   templateUrl: './view-one-user.component.html',
   styleUrls: ['./view-one-user.component.css']
 })
-export class ViewOneUserComponent {
+export class ViewOneUserComponent implements OnInit {
   public user!: OmitTypeClass;
 
   constructor(
     private userService: UserService,
     private notifier: ToastrService,
-    private router: ActivatedRoute,
-    private router2: Router) {
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
   }
 
   public deleteUser(id: string): void {
     this.userService.deleteUser(id).subscribe({
       next: (response) => {
-        this.router2.navigateByUrl('/admin/users');
+        this.router.navigateByUrl('/admin/users');
       },
       error: (err) => {
         this.notifier.error(err.error.message, 'Ошибка удаления пользователя');
@@ -33,15 +33,17 @@ export class ViewOneUserComponent {
   }
 
   ngOnInit() {
-    let id = this.router.snapshot.params['id'];
+    let id = this.activatedRoute.snapshot.params['id'];
 
-    this.userService.getUser(id).subscribe({
-      next: (response) => {
-        this.user = response;
+    this.activatedRoute.data.subscribe({
+      next: ({user}) => {
+        this.user = user;
       },
-      error: (err) => {
-        this.notifier.error(err.error.message, 'Ошибка получения пользователя: ');
+      error: error => {
+        this.notifier.error(error.error.message, 'Ошибка получения данных пользователя');
       }
-    })
+    });
+
+
   }
 }

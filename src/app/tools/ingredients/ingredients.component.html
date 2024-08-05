@@ -3,7 +3,7 @@
   <h4 class="ing-subtitle my-3">Что вам пригодиться</h4>
   <div *ngFor="let ingredient of ingredients; index as i" class="ingredient">
     <div>
-      <app-checkbox [index]="i" [checked]="false"
+      <app-checkbox [index]="i" [checked]="ingredientsChecked[i]"
                     (checkedChange)="ingredientsChecked[i] = !ingredientsChecked[i]"></app-checkbox>
       <span class="text"
             [ngClass]="{'checked': ingredientsChecked[i]}">{{ ingredient.title }}</span>

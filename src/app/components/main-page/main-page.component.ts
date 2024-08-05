@@ -14,6 +14,8 @@ import {LikeService} from "../../services/like.service";
 })
 export class MainPageComponent implements OnInit {
   public sliderRecipes: GetAllPosts[] = []
+  public bestRecipes: GetAllPosts[] = []
+  public bestCount: number = 3;
 
   constructor(
     private title: Title,
@@ -38,6 +40,7 @@ export class MainPageComponent implements OnInit {
         this.recipesService.allRecipes = recipes;
         this.sliderRecipes = recipes.slice(0, 3);
         this.recipesService.fillAllRandom();
+//        this.bestRecipes = this.recipesService.fullRandomRecipes.slice(0, 3);
         this.likeService.getLikes();
       },
       error: error => {

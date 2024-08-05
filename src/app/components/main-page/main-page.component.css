@@ -14,4 +14,8 @@ h2 {
 }
 app-why-we{
   flex-basis: 0;
+  min-width: 300px;
+}
+.w30{
+  min-width: 30%;
 }

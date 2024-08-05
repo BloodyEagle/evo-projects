@@ -1,0 +1,10 @@
+<div #win class="d-flex flex-row justify-content-between position-fixed rounded-3 p-3 win">
+  <div><img src="{{ icon }}"></div>
+  <div class="d-flex flex-column">
+    <div class="title">{{ title }}</div>
+    <div class="text">{{ text }}</div>
+  </div>
+  <div>
+    <div class="close" (click)="close()">x</div>
+  </div>
+</div>

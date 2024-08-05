@@ -21,8 +21,10 @@ export class FavoritesState {
     let state = ctx.getState();
     if (state.find(fav => fav === action.id)) {
       state = state.filter(fav => fav !== action.id);
+      ctx.setState(state);
+    } else {
+      ctx.setState([...state, action.id]);
     }
-    ctx.setState([...state, action.id]);
   }
 
 }

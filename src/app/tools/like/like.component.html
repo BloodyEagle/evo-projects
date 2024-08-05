@@ -1,4 +1,7 @@
+<app-simple-notify  [title]="liked ? 'Добавлено в понравившееся' : 'Удалено из понравившегося'"
+                    [text]="liked ? 'Сохранили этот рецепт для вас' : 'Больше не нравится?'">
 <div class="bg" (click)="toggleLike()">
   <img *ngIf="liked" src="{{likedIcon}}">
   <img *ngIf="!liked" src="{{unlikeIcon}}">
 </div>
+</app-simple-notify>
